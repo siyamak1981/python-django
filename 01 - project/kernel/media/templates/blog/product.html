@@ -1,0 +1,11 @@
+{% extends 'shared/site.html' %}
+{% block body %}
+{% if post %}
+    <p>{{ post }}</p>
+    <p>{{ post.summary }}</p>
+    <p>{{ post.content }}</p>
+    <p>{{ post.uid }}</p>
+{% else %}
+    we don't find any post.
+{% endif %}
+{% endblock %}

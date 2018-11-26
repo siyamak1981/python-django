@@ -1,0 +1,15 @@
+{% extends 'shared/site.html' %}
+
+{% block body %}
+    <h1>List of products</h1>
+    <ul>
+        {% if latest_posts %}
+            {% for post in latest_posts %}
+                {{ post }}
+            {% endfor %}
+        
+        {% else %}
+            <p>We don't have any post</p>
+        {% endif %}
+    </ul>
+{% endblock %}

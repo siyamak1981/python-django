@@ -1,0 +1,45 @@
+#owl-seven {
+  position: relative;
+  .owl-dots {
+    display: none;
+  }
+  .date {
+    position: relative;
+    top: -5px;
+    margin-bottom: 30px;
+  }
+  h5 {
+    font-size: 15px !important;
+    margin-top: 10px;
+  }
+  .owl-nav {
+    position: absolute;
+    bottom: 250px;
+    color: #e2af23;
+    font-weight: bold;
+    width: 100%;
+    font-size: 30px;
+    button {
+      &:focus {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        outline: none;
+        text-decoration: none;
+        color: #Fff;
+      }
+    }
+    [class*=owl-]:hover {
+      background: transparent;
+      color: #e2af23;
+      text-decoration: none;
+    }
+    .owl-prev {
+      position: absolute;
+      right: 15px;
+    }
+    .owl-next {
+      position: absolute;
+      left: 15px;
+    }
+  }
+}

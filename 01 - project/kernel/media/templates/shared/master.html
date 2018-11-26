@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>باشگاه بدمینتون</title>
+  <link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="{% static 'assets/features/font/iran-sans/css/fontiran.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/features/font_num/css/fontiran.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/features/bootstrap/css/rtl/bootstrap-rtl.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/features/owl-carousel/css/owl.carousel.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/features/owl-carousel/css/owl.theme.default.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/features/hover.css/css/hover.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/features/main/css/main.css' %}" />
+  {% block styles %}
+  {% endblock %}
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="rtl">
+  <header>
+    {% include 'partials/_header.html' %}
+
+    {% include 'partials/_nav.html' %}
+  </header>
+
+  {% block body %}
+  {% endblock %}
+  
+
+  {% include 'partials/_footer.html' %}
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="{% static 'assets/features/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/features/stickyjs/js/jquery.sticky.js' %}"></script>
+
+  <script src="{% static 'assets/features/main/js/main.js' %}"></script>
+  {% block scripts %}
+  {% endblock %}
+</body>
+
+</html>

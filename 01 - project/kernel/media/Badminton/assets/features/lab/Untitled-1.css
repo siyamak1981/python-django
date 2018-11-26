@@ -1,0 +1,11 @@
+.st0
+{
+  background : -moz-linear-gradient(0% 50% 0deg,rgba(0, 138, 237, 1) 0%,rgba(27, 227, 200, 1) 100%);
+  background : -webkit-linear-gradient(0deg, rgba(0, 138, 237, 1) 0%, rgba(27, 227, 200, 1) 100%);
+  background : -webkit-gradient(linear,0% 50% ,100% 50% ,color-stop(0,rgba(0, 138, 237, 1) ),color-stop(1,rgba(27, 227, 200, 1) ));
+  background : -o-linear-gradient(0deg, rgba(0, 138, 237, 1) 0%, rgba(27, 227, 200, 1) 100%);
+  background : -ms-linear-gradient(0deg, rgba(0, 138, 237, 1) 0%, rgba(27, 227, 200, 1) 100%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#008AED', endColorstr='#1BE3C8' ,GradientType=0)";
+  background : linear-gradient(90deg, rgba(0, 138, 237, 1) 0%, rgba(27, 227, 200, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#008AED',endColorstr='#1BE3C8' , GradientType=1);
+}

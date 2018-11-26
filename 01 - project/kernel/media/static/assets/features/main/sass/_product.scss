@@ -1,0 +1,166 @@
+.selected-product {
+  padding: 70px 0;
+  .row {
+    .col-md-6:first-child {
+      background-color: #e6e6e6;
+    }
+    .col-md-6:nth-child(2) {
+      border-top: 1px solid #b5b5b5;
+      border-bottom: 1px solid #b5b5b5;
+      border-left: 1px solid #b5b5b5;
+      padding-top: 35px;
+      padding-bottom: 35px;
+    }
+  }
+  .title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 17px;
+  }
+  .sale {
+    margin-bottom: 0;
+    color: #15b095;
+  }
+  .real-price {
+    text-decoration: line-through;
+    font-size: 14px;
+    color: #9c9c9c;
+    margin-top: 5px;
+    margin-right: 5px;
+  }
+  .text {
+    text-align: justify;
+    font-size: 14px;
+    color: #6d6d6d;
+  }
+  hr {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-top: 1px solid rgba(84, 84, 84, 0.51);
+  }
+  .select-size {
+    ul {
+      margin-right: 30px;
+      li {
+        margin-left: 5px;
+        &:last-child {
+          margin-left: 0;
+        }
+      }
+    }
+    button {
+      background: transparent;
+      border: 1px solid #000;
+      width: 38px;
+      text-align: center;
+      height: 27px;
+      padding-top: 3px;
+      transition: .3s;
+      cursor: pointer;
+      &:hover {
+        color: #15b095;
+        border: 1px solid #15b095;
+      }
+    }
+  }
+  .stars {
+    margin-bottom: 0;
+    color: #e2af23;
+    margin-right: 40px;
+  }
+  #owl-eight {
+    position: relative;
+    img {
+      width: 400px;
+      margin: 0 auto;
+    }
+    .owl-dots {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      z-index: 2;
+      right: 0;
+      .owl-dot {
+        &:focus {
+          box-shadow: none;
+          border: none;
+          outline: none;
+        }
+        span {
+          background: #869791;
+        }
+      }
+      .owl-dot.active {
+        span {
+          background-color: #15b095;
+          width: 20px;
+          height: 20px;
+          position: relative;
+          top: 6px;
+        }
+      }
+    }
+  }
+  .custom-checkbox > [type="checkbox"]:not(:checked) + label:before,
+  .custom-checkbox > [type="checkbox"]:checked + label:before {
+    width: 30px;
+    height: 30px;
+  }
+  .custom-checkbox.red > [type="checkbox"]:not(:checked) + label:before,
+  .custom-checkbox.red > [type="checkbox"]:checked + label:before {
+    background-color: #da302b;
+  }
+  .custom-checkbox.gray > [type="checkbox"]:not(:checked) + label:before,
+  .custom-checkbox.gray > [type="checkbox"]:checked + label:before {
+    background-color: #9a9ea2;
+  }
+  .custom-checkbox.green > [type="checkbox"]:not(:checked) + label:before,
+  .custom-checkbox.green > [type="checkbox"]:checked + label:before {
+    background-color: #c2d789;
+  }
+  .custom-checkbox > [type="checkbox"]:not(:checked) + label:after,
+  .custom-checkbox > [type="checkbox"]:checked + label:after {
+    font: normal normal normal 21px/1 FontAwesome;
+  }
+  .color {
+    ul {
+      margin-right: 27px;
+      margin-top: -9px;
+    }
+  }
+  .btn_1 {
+    margin-right: auto;
+    display: block;
+    margin-bottom: -20px;
+  }
+  .counter {
+    span {
+      margin-left: 25px;
+      margin-top: 5px;
+    }
+    p {
+      margin-right: 15px;
+      margin-left: 15px;
+      margin-top: 5px;
+    }
+    button {
+      width: 35px;
+      height: 35px;
+      padding-top: 0px;
+      text-align: center;
+      font-size: 25px;
+      border: 1px solid #afafaf;
+      color: #afafaf;
+      cursor: pointer;
+      background-color: #fff;
+    }
+  }
+  .delivery {
+    p {
+      color: #868686;
+      font-size: 14px;
+      font-weight: lighter;
+      line-height: 26px;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.bosses-words {
+  padding: 50px 0;
+  padding-top: 100px;
+  .display-flex-r {
+    margin: 20px;
+    margin-right: 30px !important;
+    margin-left: 30px !important;
+    border-radius: 5px;
+    border: 1px solid #bababa;
+    .profile-box {
+      width: 20%;
+    }
+    .news-content {
+      padding-left: 0px !important;
+      padding: 15px;
+      width: 80%;
+      padding-right: 0;
+      .text {
+        font-size: 19px;
+        color: #000;
+        margin-top: 15px;
+      }
+      span {
+        font-size: 16px;
+        color: #000;
+      }
+    }
+  }
+}

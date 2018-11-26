@@ -1,0 +1,250 @@
+{% extends 'shared/master.html' %}
+{% load static %}
+{% block body %}
+
+<main>
+    <div class="banner_3">
+      <h1 class="heading-style-1">
+        اخبار
+      </h1>
+      <div class="location">
+        <a href="#">خانه</a>
+        <span>/</span>
+        <a href="#">اخبار</a>
+        <span>/</span>
+        <a class="active" href="#">لیست</a>
+      </div>
+    </div>
+
+    <div class="news-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 right_side news-list">            
+            {% for post in posts %}
+            <div class="col-12 mt-4">
+                <div class=" border-box-2">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <img class="img-fluid news-image" src="{{ post.banner.url }}" alt="post.slug">
+                    </div>
+                    <div class="col-md-6 news-content">
+                      <a class="title" href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a>
+                      <br>
+                      <span class="date">{{ post.published_at }}</span>
+                      <p class="text">
+                        {{ post.summary }}
+                      </p>
+                      <a class="btn_2" href="{% url 'blog:post' slug=post.slug %}">بیشتر بخوانید</a>
+                      <hr class="hr-divider-1">
+                      <hr class="hr-divider-2">
+                      <div class="social">
+                        <div class="profile">
+                          <img src="{% static 'assets/img/thumb/profile.jpg' %}" alt="{{ post.author.first_name }} {{ post.author.last_name }}">
+                         <span class="name">{{ post.author.first_name }} {{ post.author.last_name }}</span>
+                        </div>
+                        <div class="user-input seen-count">
+                          <i class="fa fa-eye" aria-hidden="true"></i>
+                          <span class="count">251</span>
+                        </div>
+                        <div class="user-input like liked">
+                          <button class="like liked" href="#" role="button">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                          </button>
+                          <span class="count">251</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+            
+
+            
+            <ul class="pagination left-margin">
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li><i class="fa fa-ellipsis-h mt-2" aria-hidden="true"></i></li>
+              <li class="page-item"><a class="page-link" href="#">10</a></li>
+              <li class="page-item"><a class="page-link" href="#">11</a></li>
+              <li class="page-item"><a class="page-link" href="#">12</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4 left_side d-none d-lg-block">
+            <div class="col-md-12">
+              <div class="new-news border-box-2 overflow_hidden">
+                <div class="header-section">
+                  <div class="row">
+                    <div class="col-6">
+                      <h3 class="heading-style-3">خبر جدید</h3>
+                    </div>
+                    <div class="col-6"></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-md-6 col-lg-12 item">
+                    <div class="row">
+                      <div class="col-4">
+                        <a href="#"><img class="img-fluid" src="assets/img/thumb/profile.jpg" alt=""></a>
+                      </div>
+                      <div class="col-8">
+                        <h3 class="heading-style-4">لورم ایپسوم متن ساختگی با تولید سادگی</h3>
+                        <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                        <span class="date">۴ بهمن . ۱۳۹۷ / سپهر اکبرزاده</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-12 item">
+                    <div class="row">
+                      <div class="col-4">
+                        <a href="#"><img class="img-fluid" src="assets/img/thumb/profile.jpg" alt=""></a>
+                      </div>
+                      <div class="col-8">
+                        <h3 class="heading-style-4">لورم ایپسوم متن ساختگی با تولید سادگی</h3>
+                        <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                        <span class="date">۴ بهمن . ۱۳۹۷ / سپهر اکبرزاده</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-12 item">
+                    <div class="row">
+                      <div class="col-4">
+                        <a href="#"><img class="img-fluid" src="assets/img/thumb/profile.jpg" alt=""></a>
+                      </div>
+                      <div class="col-8">
+                        <h3 class="heading-style-4">لورم ایپسوم متن ساختگی با تولید سادگی</h3>
+                        <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                        <span class="date">۴ بهمن . ۱۳۹۷ / سپهر اکبرزاده</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-12 item">
+                    <div class="row">
+                      <div class="col-4">
+                        <a href="#"><img class="img-fluid" src="assets/img/thumb/profile.jpg" alt=""></a>
+                      </div>
+                      <div class="col-8">
+                        <h3 class="heading-style-4">لورم ایپسوم متن ساختگی با تولید سادگی</h3>
+                        <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                        <span class="date">۴ بهمن . ۱۳۹۷ / سپهر اکبرزاده</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="next-match border-box-2 overflow_hidden mt-4 d-none d-lg-block">
+                <div class="header-section">
+                  <div class="row">
+                    <div class="col-6">
+                      <h3 class="heading-style-3">بازی بعدی</h3>
+                    </div>
+                    <div class="col-6"></div>
+                  </div>
+                </div>
+                <div class="row mx-0 relative">
+                  <h4 class="heading-style-3">لورم ایپسوم متن ساختگی با تولید سادگی</h4>
+                  <p class="date-match">15:00 ، 1397 ، تیر 10 ، جمع</p>
+                  <div class="row mx-0 width-full">
+                    <div class="col-5"><img class="img-fluid team" src="assets/img/thumb/team_2.png" alt=""></div>
+                    <div class="col-2">
+                      <p class="versous">VS</p>
+                    </div>
+                    <div class="col-5"><img class="img-fluid team" src="assets/img/thumb/team_1.png" alt=""></div>
+                  </div>
+                  <div class="col-12">
+                    <a class="btn_1" href="#">خرید بلیط</a>
+                  </div>
+                  <p class="start-at">شروع در</p>
+                  <div class="time-left col-12">
+                    <div class="time">
+                      <p class="faNum countDown_1" id="firstClock"></p>
+                    </div>
+                    <div class="time-letters">
+                      <ul class="list-inline text-center">
+                        <li class="list-inline-item"><span>دقیقه</span></li>
+                        <li class="list-inline-item"><span>دقیقه</span></li>
+                        <li class="list-inline-item"><span>دقیقه</span></li>
+                        <li class="list-inline-item"><span>دقیقه</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="news-letter border-box-2 overflow_hidden mt-4">
+                <div class="header-section">
+                  <div class="row">
+                    <div class="col-6">
+                      <h3 class="heading-style-3">خبرنامه</h3>
+                    </div>
+                    <div class="col-6"></div>
+                  </div>
+                </div>
+                <div class="content">
+                  <h4 class="heading-style-4">اشتراک بگیرید</h4>
+                  <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه</p>
+                  <div class="form-group width-full">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="نام شما">
+                  </div>
+                  <div class="form-group width-full">
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="ایمیل یا آیدی شما">
+                  </div>
+                  <div class="row">
+                    <div class="col-4">
+                      <label class="cutomized-form-radio">روزانه
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                    <div class="col-4">
+                      <label class="cutomized-form-radio">هفتگی
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark weekly"></span>
+                      </label>
+                    </div>
+                    <div class="col-4">
+                      <label class="cutomized-form-radio">ماهانه
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <a class="btn_1 center-box width-full text-center" href="#">خرید بلیط</a>
+                </div>
+              </div>
+
+              <div class="social-media-2 mt-3">
+                <div class="row">
+                  <div class="col-4">
+                    <div class="facebook item">
+                      <a class="icon" href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                      <a class="action" href="#"><h5>SUSCRIBE</h5></a>
+                      <p>5400 LIKES</p>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="twitter item">
+                      <a class="icon" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                      <a class="action" href="#"><h5>SUSCRIBE</h5></a>
+                      <p>5400 LIKES</p>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="rss item">
+                      <a class="icon" href="#"><i class="fa fa-rss" aria-hidden="true"></i></a>
+                      <a class="action" href="#"><h5>SUSCRIBE</h5></a>
+                      <p>5400 LIKES</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</main>
+{% endblock %}

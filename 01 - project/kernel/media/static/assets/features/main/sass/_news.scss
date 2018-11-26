@@ -1,0 +1,34 @@
+.banner_3 {
+  &:after {
+    background-image: url(../../../img/bg/banner_3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+.news-section {
+  .border-box-2 {
+    .btn_2 {
+      position: relative;
+      top: 15px;
+    }
+  }
+  .next-match {
+    .btn_1 {
+      margin: 0 auto;
+      margin-top: 5px;
+      display: block;
+      text-align: center;
+      width: 130px;
+    }
+    hr.hr-divider-1 {
+      bottom: 48px;
+    }
+  }
+  .pagination {
+    width: 280px;
+    margin-right: auto;
+    flex-direction: row-reverse;
+  }
+}
