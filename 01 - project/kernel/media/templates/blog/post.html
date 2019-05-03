@@ -56,7 +56,7 @@
                     <div class="post-content">
                     <a class="title width-full" href="#">{{ post.title }}</a>
                     <br>
-                    <span class="date">۱۳۹۷ . بهمن ۲۴</span>
+                    <span class="date">{{ post.published_at }}</span>
                     <p class="text">
                         {{ post.content }}
                     </p>
@@ -99,22 +99,22 @@
                 <div class=" border-box-2">
                     <div class="row">
                     <div class="col-md-12">
-                        <img class="img-fluid news-image" src="assets/img/thumb/profile.jpg" alt="">
+                        <img class="img-fluid news-image" src="{% static 'assets/img/thumb/profile.jpg '%}" alt="">
                     </div>
                     <div class="col-md-12 news-content">
                         <div class="row mx-0">
-                        <a class="title" href="#">لورم ایپسوم متن ساختگی با تولید سادگی</a>
+                        <a class="title" href="#">{{ post.title }}</a>
                         <br>
-                        <span class="date">۱۳۹۷ . بهمن ۲۴</span>
-                        <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با .هدف بهبود ابزارهای کاربردی میباشد
+                        <span class="date">{{ post.published_at }}</span>
+                        <p class="text">{{ post.content }}
                         </p>
                         <a class="btn_2" href="#">بیشتر بخوانید</a>
                         <hr class="hr-divider-1">
                         <hr class="hr-divider-2">
                         <div class="social mr-0">
                             <div class="profile">
-                            <img src="assets/img/thumb/profile.jpg" alt="">
-                            <span class="name">سپهر اکبرزاده</span>
+                            <img src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
+                            <span class="name">{{ post.author.first_name }} {{ post.author.last_name }}</span>
                             </div>
                             <div class="user-input ml-auto seen-count">
                             <i class="fa fa-eye" aria-hidden="true"></i>
@@ -137,22 +137,22 @@
                 <div class=" border-box-2">
                     <div class="row">
                     <div class="col-md-12">
-                        <img class="img-fluid news-image" src="assets/img/thumb/profile.jpg" alt="">
+                        <img class="img-fluid news-image" src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
                     </div>
                     <div class="col-md-12 news-content">
                         <div class="row mx-0">
-                        <a class="title" href="#">لورم ایپسوم متن ساختگی با تولید سادگی</a>
+                        <a class="title" href="#">{{ post.title }}</a>
                         <br>
-                        <span class="date">۱۳۹۷ . بهمن ۲۴</span>
-                        <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با .هدف بهبود ابزارهای کاربردی میباشد
+                        <span class="date">{{ post.published_at }}</span>
+                        <p class="text">{{ post.content }}
                         </p>
                         <a class="btn_2" href="#">بیشتر بخوانید</a>
                         <hr class="hr-divider-1">
                         <hr class="hr-divider-2">
                         <div class="social mr-0">
                             <div class="profile">
-                            <img src="assets/img/thumb/profile.jpg" alt="">
-                            <span class="name">سپهر اکبرزاده</span>
+                            <img src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
+                            <span class="name">{{ post.author.first_name }} {{ post.author.last_name }}</span>
                             </div>
                             <div class="user-input ml-auto seen-count">
                             <i class="fa fa-eye" aria-hidden="true"></i>
@@ -189,10 +189,10 @@
                 <div class="col-12 commented">
                     <div class="row mx-0">
                     <div class="col-2 col-sm-3 col-md-2">
-                        <img class="img-fluid" src="assets/img/thumb/profile.jpg" alt="">
+                        <img class="img-fluid" src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
                     </div>
                     <div class="col-10 col-sm-9 col-md-10">
-                        <h3 class="heading-style-3">سپهر اکبرزاده</h3>
+                        <h3 class="heading-style-3">{{ post.author.first_name }} {{ post.author.last_name }}</h3>
                         <ul class="list-inline">
                         <li class="list-inline-item"><span><i class="fa fa-user-o" aria-hidden="true"></i>۱۳۹۷ -  تیر ۲۶</span></li>
                         <li class="list-inline-item"><span><i class="fa fa-clock-o" aria-hidden="true"></i>۱۵ : ۲۵</span></li>
@@ -200,7 +200,7 @@
                             <a href="#">Reply</a>
                         </li>
                         </ul>
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز</p>
+                        <p>{{ post.content }} </p>
                     </div>
                     </div>
                 </div>
@@ -249,48 +249,48 @@
                     <div class="col-12 col-md-6 col-lg-12 item">
                     <div class="row">
                         <div class="col-4">
-                        <a href="#"><img class="img-fluid" src="assets/img/thumb/profile.jpg" alt=""></a>
+                        <a href="#"><img class="img-fluid" src="{% static 'assets/img/thumb/profile.jpg' %}" alt=""></a>
                         </div>
                         <div class="col-8">
-                        <h3 class="heading-style-4">لورم ایپسوم متن ساختگی با تولید سادگی</h3>
-                        <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
-                        <span class="date">۴ بهمن . ۱۳۹۷ / سپهر اکبرزاده</span>
+                        <h3 class="heading-style-4">{{ post.title }}</h3>
+                        <p class="text">{{ post.summary }} </p>
+                        <span class="date">{{ post.published_at }}</span>
                         </div>
                     </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-12 item">
                     <div class="row">
                         <div class="col-4">
-                        <a href="#"><img class="img-fluid" src="assets/img/thumb/profile.jpg" alt=""></a>
+                        <a href="#"><img class="img-fluid" src="{% static 'assets/img/thumb/profile.jpg' %}" alt=""></a>
                         </div>
                         <div class="col-8">
-                        <h3 class="heading-style-4">لورم ایپسوم متن ساختگی با تولید سادگی</h3>
-                        <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
-                        <span class="date">۴ بهمن . ۱۳۹۷ / سپهر اکبرزاده</span>
+                        <h3 class="heading-style-4">{{ post.title }}</h3>
+                        <p class="text">{{ post.summary }}</p>
+                        <span class="date">{{ post.published_at }}</span>
                         </div>
                     </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-12 item">
                     <div class="row">
                         <div class="col-4">
-                        <a href="#"><img class="img-fluid" src="assets/img/thumb/profile.jpg" alt=""></a>
+                        <a href="#"><img class="img-fluid" src="{% static 'assets/img/thumb/profile.jpg' %}" alt=""></a>
                         </div>
                         <div class="col-8">
-                        <h3 class="heading-style-4">لورم ایپسوم متن ساختگی با تولید سادگی</h3>
-                        <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
-                        <span class="date">۴ بهمن . ۱۳۹۷ / سپهر اکبرزاده</span>
+                        <h3 class="heading-style-4">{{ post.title }}</h3>
+                        <p class="text">{{ post.summary }} </p>
+                        <span class="date">{{ post.published_at }}</span>
                         </div>
                     </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-12 item">
                     <div class="row">
                         <div class="col-4">
-                        <a href="#"><img class="img-fluid" src="assets/img/thumb/profile.jpg" alt=""></a>
+                        <a href="#"><img class="img-fluid" src="{% static 'assets/img/thumb/profile.jpg' %}" alt=""></a>
                         </div>
                         <div class="col-8">
-                        <h3 class="heading-style-4">لورم ایپسوم متن ساختگی با تولید سادگی</h3>
-                        <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
-                        <span class="date">۴ بهمن . ۱۳۹۷ / سپهر اکبرزاده</span>
+                        <h3 class="heading-style-4">{{ post.title }}</h3>
+                        <p class="text">{{ post.summary }} </p>
+                        <span class="date">{{ post.published_at }}</span>
                         </div>
                     </div>
                     </div>
@@ -307,14 +307,14 @@
                     </div>
                 </div>
                 <div class="row mx-0 relative">
-                    <h4 class="heading-style-3">لورم ایپسوم متن ساختگی با تولید سادگی</h4>
+                    <h4 class="heading-style-3">{{ post.title }}</h4>
                     <p class="date-match">15:00 ، 1397 ، تیر 10 ، جمع</p>
                     <div class="row mx-0 width-full">
-                    <div class="col-5"><img class="img-fluid team" src="assets/img/thumb/team_2.png" alt=""></div>
+                    <div class="col-5"><img class="img-fluid team" src="{% static 'assets/img/thumb/team_2.png' %}" alt=""></div>
                     <div class="col-2">
                         <p class="versous">VS</p>
                     </div>
-                    <div class="col-5"><img class="img-fluid team" src="assets/img/thumb/team_1.png" alt=""></div>
+                    <div class="col-5"><img class="img-fluid team" src="{% static 'assets/img/thumb/team_1.png' %}" alt=""></div>
                     </div>
                     <div class="col-12 text-center">
                     <a class="btn_1" href="#">خرید بلیط</a>
@@ -347,7 +347,7 @@
                 </div>
                 <div class="content">
                     <h4 class="heading-style-4">اشتراک بگیرید</h4>
-                    <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه</p>
+                    <p class="text">{{ post.summary }} </p>
                     <div class="form-group width-full">
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="نام شما">
                     </div>

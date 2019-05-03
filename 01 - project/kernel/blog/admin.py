@@ -108,6 +108,29 @@ class CategoryAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     pass
 
+
+# ##########
+# ticketing
+# ###########3333
+
+# Register your models here.
+
+
+@admin.register(models.Ticketing)
+class TicketingAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(models.Message)
+class MessageAdmin(admin.ModelAdmin):
+    pass
+@admin.register(models.Department)
+class DepartmentAdmin(admin.ModelAdmin):
+    pass
+@admin.register(models.Attachment)
+class AttachmentAdmin(admin.ModelAdmin):
+    pass
+
+
 admin.site.site_header = "Sepehr Adminstration"
 admin.site.site_title = "Sepehr site admin"
 admin.site.index_title = "Welcome to Sepehr dashboard"

@@ -1,21 +1,21 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary font-thin">
-    <a class="navbar-brand{% if view.page_name == 'landing' %}active{% endif %}" href="{% url 'mysite:landing' %}">خانه بدمینتون</a>
+    <a class="navbar-brand{% if view.page_name == 'landing' %} active {% endif %}" href="{% url 'mysite:landing' %}">خانه بدمینتون</a>
     <button class="navbar-toggler d-none d-md-block d-lg-none d-xl-none" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-            <a class="nav-link" href="#">لیگ <span class="sr-only">(current)</span></a>
+            <a class="nav-link{% if view.page_name == 'لیگ' %} active {% endif %}" href="#">لیگ <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">اخبار</a>
+            <a class="nav-link{% if view.page_name == 'اخبار' %} active {% endif %}" href="#">اخبار</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">آموزش</a>
+            <a class="nav-link{% if view.page_name == 'آموزش' %} active {% endif %}" href="#">آموزش</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">باشگاه ها</a>
+            <a class="nav-link{% if view.page_name == 'باشگاهها' %} active {% endif %}" href="#">باشگاه ها</a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download"><i class="fa fa-caret-down" aria-hidden="true"></i>هیئت بدمینتون</a>
@@ -28,7 +28,13 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">فروشگاه</a>
+            <a class="nav-link{% if view.page_name == 'فروشگاه' %} active {% endif %}" href="#">فروشگاه</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link{% if view.page_name == 'تماس با ما' %} active {% endif %}" href="{% url 'mysite:contact' %}">تماس با ما</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link{% if view.page_name == 'نقشه سایت' %} active {% endif %}" href="{% url 'mysite:sitemap' %}">نقشه سایت </a>
         </li>
         </ul>
     </div>

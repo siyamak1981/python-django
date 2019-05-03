@@ -9,18 +9,29 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+    'django.contrib.sitemaps',
+    'django.contrib.sites',
+    'rest_framework',
+    'widget_tweaks',
+    'robots',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+     'django.middleware.gzip.GZipMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
+    # 'htmlmin.middleware.HtmlMinifyMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
+    # 'htmlmin.middleware.MarkRequestMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
+    
 
 
 TEMPLATES = [
@@ -57,6 +68,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ROOT_URLCONF = 'kernel.urls'
 WSGI_APPLICATION = 'kernel.wsgi.application'
 
+# AUTH_USER_MODEL = 'mysite.Contact'
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -68,19 +80,25 @@ USE_L10N = True
 USE_TZ = True
 
 
-
 STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'media', 'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media', 'upload')
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/upload/')
-
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'media/static/'),
+    os.path.join(BASE_DIR, 'media', 'static'),
 )
-
-
 # Production
 # python manage.py collectstatic
 # mystaticfiles
 STATIC_ROOT = os.path.join(BASE_DIR, 'mystaticfiles')
+# minifers
+HTML_MINIFY = True
+# caches
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'my_cache_table',
+    }
+}
