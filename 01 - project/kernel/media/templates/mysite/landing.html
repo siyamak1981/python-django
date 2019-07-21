@@ -1,852 +1,674 @@
 {% extends 'shared/master.html' %}
 {% load static %}
 
+{% load tags %}
 {% block scripts %}
-    <script src="{% static 'assets/features/owl-carousel/js/owl.carousel.js' %}"></script>
 {% endblock %}
-
 {% block body %}
 <main>
-    <section class="banner">
-        <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-lg-6 banner-content relative">
-            <h4 class="heading-style-2 white mr-bt-0">
+  <section class="banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-lg-6 banner-content relative">
+          <h4 class="heading-style-2 white mr-bt-0">
             عملکرد ضعیف لى چون وى در بازى فینال
-        </h4>
-            <p class="white relative text-justify">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای
-            </p>
-            <a href="#" class="btn btn-transparent">بیشتر بخوانید</a>
-            </div>
-            <div class="col-md-4 col-lg-6"></div>
+          </h4>
+          <p class="white relative text-justify">
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون
+            بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای
+          </p>
+          <a href="#" class="btn btn-transparent">بیشتر بخوانید</a>
         </div>
+        <div class="col-md-4 col-lg-6"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="instantaneous-news">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-3 sa_yellow_section ">
+          <h3 class="heading-style-3 text-center">خبر فوری</h3>
         </div>
-    </section>
-
-    <section class="instantaneous-news">
-        <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-3 sa_yellow_section ">
-            <h3 class="heading-style-3 text-center">خبر فوری</h3>
+        <div class="col-lg-9 sa_news_slider relative">
+          <div id="owl-one" class="owl-carousel owl-theme">
+            <div class="item">
+              <p>امین یونس پیشنهاد سوانزی را رد کرد؛ وینگر آلمانی در انتظار ناپولی است</p>
             </div>
-            <div class="col-lg-9 sa_news_slider relative">
-            <div id="owl-one" class="owl-carousel owl-theme">
-                <div class="item">
-                <p>امین یونس پیشنهاد سوانزی را رد کرد؛ وینگر آلمانی در انتظار ناپولی است</p>
-                </div>
-                <div class="item">
-                <p>امین یونس پیشنهاد سوانزی را رد کرد؛ وینگر آلمانی در انتظار ناپولی است</p>
-                </div>
-                <div class="item">
-                <p>امین یونس پیشنهاد سوانزی را رد کرد؛ وینگر آلمانی در انتظار ناپولی است</p>
-                </div>
-                <div class="item">
-                <p>امین یونس پیشنهاد سوانزی را رد کرد؛ وینگر آلمانی در انتظار ناپولی است</p>
-                </div>
-                <div class="item">
-                <p>امین یونس پیشنهاد سوانزی را رد کرد؛ وینگر آلمانی در انتظار ناپولی است</p>
-                </div>
+            <div class="item">
+              <p>امین یونس پیشنهاد سوانزی را رد کرد؛ وینگر آلمانی در انتظار ناپولی است</p>
             </div>
+            <div class="item">
+              <p>امین یونس پیشنهاد سوانزی را رد کرد؛ وینگر آلمانی در انتظار ناپولی است</p>
             </div>
+            <div class="item">
+              <p>امین یونس پیشنهاد سوانزی را رد کرد؛ وینگر آلمانی در انتظار ناپولی است</p>
+            </div>
+            <div class="item">
+              <p>امین یونس پیشنهاد سوانزی را رد کرد؛ وینگر آلمانی در انتظار ناپولی است</p>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="main-landing">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 left-side">
+          <div class="border-box-2 overflow_hidden news-section specific-news landing-news box-1">
+            <div class="header-section">
+              <div class="row">
+                <div class="col-md-4 col-6">
+                  <h3 class="heading-style-3">خبرنامه</h3>
+                </div>
+                <div class="col-md-8 col-6"></div>
+              </div>
+            </div>
+            <div class="row">
+              {% for product in latest_product %}
+              {% if forloop.first %}
+              <div class="col-md-6 mt-4">
+                <div class=" border-box-2">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <img class="img-fluid news-image" src="../../{{ product.banner.url }}" alt="">
+                    </div>
+                    <div class="col-md-12 news-content mr-xs-0">
+                      <div class="row mx-0">
+                        <a class="title" href="#">{{ product.name }}</a>
+                        <br>
+                        <span class="date mt-1">{{ product.published_at }}</span>
+                        <div class="social display-flex-rr">
+                          <div class="user-input like liked">
+                            <button class="like liked" href="#" role="button">
+                              <i class="fa fa-heart-o" aria-hidden="true"></i>
+                              <i class="fa fa-heart" aria-hidden="true"></i>
+                            </button>
+                            <span class="count">251</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+              <div class="col-md-6 mt-4">
+                <div class=" border-box-2">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <img class="img-fluid news-image" src="../../{{ product.banner.url }}" alt="">
+                    </div>
+                    <div class="col-md-12 news-content mr-xs-0">
+                      <div class="row mx-0">
+                        <a class="title" href="#">{{ product.name }}</a>
+                        <br>
+                        <span class="date mt-1">{{ product.published_at }}</span>
+                        <div class="social display-flex-rr">
+                          <div class="user-input like liked">
+                            <button class="like liked" href="#" role="button">
+                              <i class="fa fa-heart-o" aria-hidden="true"></i>
+                              <i class="fa fa-heart" aria-hidden="true"></i>
+                            </button>
+                            <span class="count">251</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="border-box-2 overflow_hidden mt-4">
+            <div class="header-section">
+              <div class="row">
+                <div class="col-md-4 col-6">
+                  <h3 class="heading-style-3">بازی بعدی</h3>
+                </div>
+                <div class="col-md-8 col-6"></div>
+              </div>
+            </div>
+            <div id="owl-six" class="p-4 owl-carousel owl-theme">
+              <div class="item">
+                <h3 class="heading-style-3">سپهر اکبرزاده :</h3>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها
+                  و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
+                  کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و
+                  آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت </p>
+              </div>
+              <div class="item">
+                <h3 class="heading-style-3">سپهر اکبرزاده :</h3>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها
+                  و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
+                  کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و
+                  آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت </p>
+              </div>
+              <div class="item">
+                <h3 class="heading-style-3">سپهر اکبرزاده :</h3>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها
+                  و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
+                  کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و
+                  آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت </p>
+              </div>
+              <div class="item">
+                <h3 class="heading-style-3">سپهر اکبرزاده :</h3>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها
+                  و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
+                  کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و
+                  آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت </p>
+              </div>
+              <div class="item">
+                <h3 class="heading-style-3">سپهر اکبرزاده :</h3>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها
+                  و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
+                  کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و
+                  آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت </p>
+              </div>
+            </div>
+          </div>
+
+
+          
+         <div class="border-box-2 overflow_hidden news-section specific-news landing-news mt-4 box-2 d-none d-lg-block">
+            <div class="header-section">
+              <div class="row">
+                <div class="col-md-4 col-6">
+                  <h3 class="heading-style-3">خبرنامه</h3>
+                </div>
+                <div class="col-md-8 col-6">
+                  <ul class="nav nav-tabs sa_border_box_2_menu" id="myTab_2" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                        aria-selected="true">آموزش</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                        aria-controls="profile" aria-selected="false">مقاله</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="tab-content" id="myTabContent_2">   
+              <div class="row p-4 fade show active tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                  {% for post in latest_posts %}  
+                <div class="col-12 mt-3">
+                  <div class=" border-box-2">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <img class="img-fluid news-image" src="../../{{ post.banner.url }}" alt="">
+                      </div>
+                      <div class="col-md-6 news-content pl-0">
+                        <a class="title" href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a>
+                        <br>
+                        <span class="date">{{ post.published_at|jalali_date }}</span>
+                        <p class="text">{{ post.content|truncatechars:200 }}
+                        </p>
+                        <a class="btn_2" href="{% url 'blog:post' slug=post.slug %}">بیشتر بخوانید</a>
+                        <div class="social mt-4">
+                          <div class="user-input seen-count">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                            <span class="count">251</span>
+                          </div>
+                          <div class="user-input like">
+                            <button class="like" href="#" role="button">
+                              <i class="fa fa-heart-o" aria-hidden="true"></i>
+                              <i class="fa fa-heart" aria-hidden="true"></i>
+                            </button>
+                            <span class="count">251</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                        {% if forloop.counter == 1 %}
+                        <div class="clearfix"></div>
+                        {% include 'partials/_pagination.html'  %}
+                        {% endif %}
+               {% endfor %}
+                </div>
+              </div> 
+            </div>
+          <div class="border-box-2 overflow_hidden mt-4 d-none d-md-block">
+            <div class="header-section">
+              <div class="row">
+                <div class="col-md-4 col-6">
+                  <h3 class="heading-style-3">بازی بعدی</h3>
+                </div>
+                <div class="col-md-8 col-6"></div>
+              </div>
+            </div>
+            <div class="row mx-0 justify-content-center relative mt-4">
+              <div class="row mx-0 width-full">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                  <img class="img-fluid" src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
+                  <p class="text-center mt-2"><a class="black" href="#">علی صائمی</a></p>
+                </div>
+                <div class="col-md-2">
+                  <img class="img-fluid" src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
+                  <p class="text-center mt-2"><a class="black" href="#">علی صائمی</a></p>
+                </div>
+                <div class="col-md-2">
+                  <img class="img-fluid" src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
+                  <p class="text-center mt-2"><a class="black" href="#">علی صائمی</a></p>
+                </div>
+                <div class="col-md-2">
+                  <img class="img-fluid" src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
+                  <p class="text-center mt-2"><a class="black" href="#">علی صائمی</a></p>
+                </div>
+                <div class="col-md-2">
+                  <img class="img-fluid" src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
+                  <p class="text-center mt-2"><a class="black" href="#">علی صائمی</a></p>
+                </div>
+                <div class="col-md-1"></div>
+              </div>
+            </div>
+          </div>
+
+
         </div>
-    </section>
+        <div class="col-lg-4 right-side">
+          <div class="demo-leagues border-box-2 no-padding overflow_hidden">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link item_1 active" id="world-tab" data-toggle="tab" href="#world" role="tab"
+                  aria-controls="world" aria-selected="true">لیگ جهانی</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link item_2" id="champion-tab" data-toggle="tab" href="#champion" role="tab"
+                  aria-controls="champion" aria-selected="false">لیگ قهرمانی</a>
 
-    <section class="main-landing">
-        <div class="container">
-        <div class="row">
-
-            <div class="col-lg-8 left-side">
-
-            <div class="border-box-2 overflow_hidden news-section specific-news landing-news box-1">
-                <div class="header-section">
-                <div class="row">
-                    <div class="col-md-4 col-6">
-                    <h3 class="heading-style-3">خبرنامه</h3>
-                    </div>
-                    <div class="col-md-8 col-6"></div>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="world" role="tabpanel" aria-labelledby="world-tab">
+                <div class="table-league text-center">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">ربتبه</th>
+                        <th scope="col">بازیکن</th>
+                        <th scope="col">تیم</th>
+                        <th scope="col">تعداد بازی</th>
+                        <th scope="col">امتیاز</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row faNum">1</th>
+                        <td>علی شاه حسینی</td>
+                        <td>بارسلونا</td>
+                        <td class="faNum">4</td>
+                        <td class="faNum">20</td>
+                      </tr>
+                      <tr>
+                        <th scope="row faNum">1</th>
+                        <td>علی شاه حسینی</td>
+                        <td>بارسلونا</td>
+                        <td class="faNum">4</td>
+                        <td class="faNum">20</td>
+                      </tr>
+                      <tr>
+                        <th scope="row faNum">1</th>
+                        <td>علی شاه حسینی</td>
+                        <td>بارسلونا</td>
+                        <td class="faNum">4</td>
+                        <td class="faNum">20</td>
+                      </tr>
+                      <tr>
+                        <th scope="row faNum">1</th>
+                        <td>علی شاه حسینی</td>
+                        <td>بارسلونا</td>
+                        <td class="faNum">4</td>
+                        <td class="faNum">20</td>
+                      </tr>
+                      <tr>
+                        <th scope="row faNum">1</th>
+                        <td>علی شاه حسینی</td>
+                        <td>بارسلونا</td>
+                        <td class="faNum">4</td>
+                        <td class="faNum">20</td>
+                      </tr>
+                      <tr>
+                        <th scope="row faNum">1</th>
+                        <td>علی شاه حسینی</td>
+                        <td>بارسلونا</td>
+                        <td class="faNum">4</td>
+                        <td class="faNum">20</td>
+                      </tr>
+                      <tr>
+                        <th scope="row faNum">1</th>
+                        <td>علی شاه حسینی</td>
+                        <td>بارسلونا</td>
+                        <td class="faNum">4</td>
+                        <td class="faNum">20</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
+              </div>
+              <div class="tab-pane fade" id="champion" role="tabpanel" aria-labelledby="champion-tab">
+                <div class="table-league text-center">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">ربتبه</th>
+                        <th scope="col">بازیکن</th>
+                        <th scope="col">تیم</th>
+                        <th scope="col">تعداد بازی</th>
+                        <th scope="col">امتیاز</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row faNum">1</th>
+                        <td>علی شاه حسینی</td>
+                        <td>بارسلونا</td>
+                        <td class="faNum">4</td>
+                        <td class="faNum">20</td>
+                      </tr>
+                      <tr>
+                        <th scope="row faNum">1</th>
+                        <td>علی شاه حسینی</td>
+                        <td>بارسلونا</td>
+                        <td class="faNum">4</td>
+                        <td class="faNum">20</td>
+                      </tr>
+                      <tr>
+                        <th scope="row faNum">1</th>
+                        <td>علی شاه حسینی</td>
+                        <td>بارسلونا</td>
+                        <td class="faNum">4</td>
+                        <td class="faNum">20</td>
+                      </tr>
+                      <tr>
+                        <th scope="row faNum">1</th>
+                        <td>علی شاه حسینی</td>
+                        <td>بارسلونا</td>
+                        <td class="faNum">4</td>
+                        <td class="faNum">20</td>
+                      </tr>
+                      <tr>
+                        <th scope="row faNum">1</th>
+                        <td>علی شاه حسینی</td>
+                        <td>بارسلونا</td>
+                        <td class="faNum">4</td>
+                        <td class="faNum">20</td>
+                      </tr>
+                      <tr>
+                        <th scope="row faNum">1</th>
+                        <td>علی شاه حسینی</td>
+                        <td>بارسلونا</td>
+                        <td class="faNum">4</td>
+                        <td class="faNum">20</td>
+                      </tr>
+                      <tr>
+                        <th scope="row faNum">1</th>
+                        <td>علی شاه حسینی</td>
+                        <td>بارسلونا</td>
+                        <td class="faNum">4</td>
+                        <td class="faNum">20</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-                <div class="row">
-                <div class="col-md-6 mt-4">
-                    <div class=" border-box-2">
-                    <div class="row">
-                        <div class="col-md-12">
-                        <img class="img-fluid news-image" src="{% static 'assets/img/thumb/thumbnail_4.jpg' %}" alt="">
-                        </div>
-                        <div class="col-md-12 news-content mr-xs-0">
-                        <div class="row mx-0">
-                            <a class="title" href="#">لورم ایپسوم متن ساختگی با تولید سادگی</a>
-                            <br>
-                            <span class="date mt-1">۱۳۹۷ . بهمن ۲۴</span>
-                            <div class="social display-flex-rr">
-                            <!--                            <div class="user-input seen-count">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                <span class="count">251</span>
-                            </div>-->
-                            <div class="user-input like liked">
-                                <button class="like liked" href="#" role="button">
-                                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                </button>
-                                <span class="count">251</span>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mt-4">
-                    <div class=" border-box-2">
-                    <div class="row">
-                        <div class="col-md-12">
-                        <img class="img-fluid news-image" src="assets/img/thumb/thumbnail_4.jpg" alt="">
-                        </div>
-                        <div class="col-md-12 news-content mr-xs-0">
-                        <div class="row mx-0">
-                            <a class="title" href="#">لورم ایپسوم متن ساختگی با تولید سادگی</a>
-                            <br>
-                            <span class="date mt-1">۱۳۹۷ . بهمن ۲۴</span>
-                            <div class="social display-flex-rr">
-                            <!--                            <div class="user-input seen-count">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                <span class="count">251</span>
-                            </div>-->
-                            <div class="user-input like liked">
-                                <button class="like liked" href="#" role="button">
-                                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                </button>
-                                <span class="count">251</span>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <div class="row pb-5 pt-0">
-                <div class="col-md-6 mt-4">
-                    <div class=" border-box-2">
-                    <div class="row">
-                        <div class="col-md-12">
-                        <img class="img-fluid news-image" src="assets/img/thumb/thumbnail_4.jpg" alt="">
-                        </div>
-                        <div class="col-md-12 news-content mr-xs-0">
-                        <div class="row mx-0">
-                            <a class="title" href="#">لورم ایپسوم متن ساختگی با تولید سادگی</a>
-                            <br>
-                            <span class="date mt-1">۱۳۹۷ . بهمن ۲۴</span>
-                            <div class="social display-flex-rr">
-                            <!--                            <div class="user-input seen-count">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                <span class="count">251</span>
-                            </div>-->
-                            <div class="user-input like liked">
-                                <button class="like liked" href="#" role="button">
-                                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                </button>
-                                <span class="count">251</span>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mt-4">
-                    <div class=" border-box-2">
-                    <div class="row">
-                        <div class="col-md-12">
-                        <img class="img-fluid news-image" src="assets/img/thumb/thumbnail_4.jpg" alt="">
-                        </div>
-                        <div class="col-md-12 news-content mr-xs-0">
-                        <div class="row mx-0">
-                            <a class="title" href="#">لورم ایپسوم متن ساختگی با تولید سادگی</a>
-                            <br>
-                            <span class="date mt-1">۱۳۹۷ . بهمن ۲۴</span>
-                            <div class="social display-flex-rr">
-                            <!--                            <div class="user-input seen-count">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                <span class="count">251</span>
-                            </div>-->
-                            <div class="user-input like liked">
-                                <button class="like liked" href="#" role="button">
-                                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                </button>
-                                <span class="count">251</span>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                </div>
+              </div>
             </div>
-
-            <div class="border-box-2 overflow_hidden mt-4">
-                <div class="header-section">
-                <div class="row">
-                    <div class="col-md-4 col-6">
-                    <h3 class="heading-style-3">بازی بعدی</h3>
-                    </div>
-                    <div class="col-md-8 col-6"></div>
+          </div>
+          <a href="#">
+            <div class="thumbnail mt-4 d-none d-lg-block d-xl-block">
+              <div class="caption">
+                <div class="thumbnail-content">
+                  <p>برای مشاهده این گالری</p>
                 </div>
-                </div>
-                <div id="owl-six" class="p-4 owl-carousel owl-theme">
-                <div class="item">
-                    <h3 class="heading-style-3">سپهر اکبرزاده :</h3>
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت </p>
-                </div>
-                <div class="item">
-                    <h3 class="heading-style-3">سپهر اکبرزاده :</h3>
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت </p>
-                </div>
-                <div class="item">
-                    <h3 class="heading-style-3">سپهر اکبرزاده :</h3>
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت </p>
-                </div>
-                <div class="item">
-                    <h3 class="heading-style-3">سپهر اکبرزاده :</h3>
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت </p>
-                </div>
-                <div class="item">
-                    <h3 class="heading-style-3">سپهر اکبرزاده :</h3>
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت </p>
-                </div>
-                </div>
+              </div>
+              <img src="{% static 'assets/img/thumb/profile.jpg' %}" alt="...">
             </div>
-
-
-            <div class="border-box-2 overflow_hidden news-section specific-news landing-news mt-4 box-2 d-none d-lg-block">
-                <div class="header-section">
-                <div class="row">
-                    <div class="col-md-4 col-6">
-                    <h3 class="heading-style-3">خبرنامه</h3>
-                    </div>
-                    <div class="col-md-8 col-6">
-                    <ul class="nav nav-tabs sa_border_box_2_menu" id="myTab_2" role="tablist">
-                        <li class="nav-item">
-                        <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">آموزش</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">مقاله</a>
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-                </div>
-                <div class="tab-content" id="myTabContent_2">
-                <div class="row p-4 fade tab-pane" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <div class="col-12 mt-3">
-                    <div class=" border-box-2">
-                        <div class="row">
-                        <div class="col-md-6">
-                            <img class="img-fluid news-image" src="assets/img/thumb/profile.jpg" alt="">
-                        </div>
-                        <div class="col-md-6 news-content pl-0">
-                            <a class="title" href="#">لورم ایپسوم متن ساختگی با تولید سادگی</a>
-                            <br>
-                            <span class="date">۱۳۹۷ . بهمن ۲۴</span>
-                            <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با .هدف بهبود ابزارهای کاربردی میباشد
-                            </p>
-                            <a class="btn_2" href="#">بیشتر بخوانید</a>
-                            <div class="social mt-4">
-                            <div class="user-input seen-count">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                <span class="count">251</span>
-                            </div>
-                            <div class="user-input like">
-                                <button class="like" href="#" role="button">
-                                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                </button>
-                                <span class="count">251</span>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-12 mt-4">
-                    <div class=" border-box-2">
-                        <div class="row">
-                        <div class="col-md-6">
-                            <img class="img-fluid news-image" src="assets/img/thumb/profile.jpg" alt="">
-                        </div>
-                        <div class="col-md-6 news-content">
-                            <a class="title" href="#">لورم ایپسوم متن ساختگی با تولید سادگی</a>
-                            <br>
-                            <span class="date">۱۳۹۷ . بهمن ۲۴</span>
-                            <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با .هدف بهبود ابزارهای کاربردی میباشد
-                            </p>
-                            <a class="btn_2" href="#">بیشتر بخوانید</a>
-                            <div class="social">
-                            <div class="user-input seen-count">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                <span class="count">251</span>
-                            </div>
-                            <div class="user-input like">
-                                <button class="like" href="#" role="button">
-                                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                </button>
-                                <span class="count">251</span>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-12 mt-4">
-                    <div class=" border-box-2">
-                        <div class="row">
-                        <div class="col-md-6">
-                            <img class="img-fluid news-image" src="assets/img/thumb/profile.jpg" alt="">
-                        </div>
-                        <div class="col-md-6 news-content">
-                            <a class="title" href="#">لورم ایپسوم متن ساختگی با تولید سادگی</a>
-                            <br>
-                            <span class="date">۱۳۹۷ . بهمن ۲۴</span>
-                            <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با .هدف بهبود ابزارهای کاربردی میباشد
-                            </p>
-                            <a class="btn_2" href="#">بیشتر بخوانید</a>
-                            <div class="social">
-                            <div class="user-input seen-count">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                <span class="count">251</span>
-                            </div>
-                            <div class="user-input like">
-                                <button class="like" href="#" role="button">
-                                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                </button>
-                                <span class="count">251</span>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-12 text-center p-3">
-                    <ul class="pagination">
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li><i class="fa fa-ellipsis-h mt-2" aria-hidden="true"></i></li>
-                        <li class="page-item"><a class="page-link" href="#">10</a></li>
-                        <li class="page-item"><a class="page-link" href="#">11</a></li>
-                        <li class="page-item"><a class="page-link" href="#">12</a></li>
-                    </ul>
-                    </div>
-                </div>
-                <div class="row p-4 fade show active tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <div class="col-12 mt-3">
-                    <div class=" border-box-2">
-                        <div class="row">
-                        <div class="col-md-6">
-                            <img class="img-fluid news-image" src="assets/img/thumb/profile.jpg" alt="">
-                        </div>
-                        <div class="col-md-6 news-content pl-0">
-                            <a class="title" href="#">لورم ایپسوم متن ساختگی با تولید سادگی</a>
-                            <br>
-                            <span class="date">۱۳۹۷ . بهمن ۲۴</span>
-                            <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با .هدف بهبود ابزارهای کاربردی میباشد
-                            </p>
-                            <a class="btn_2" href="#">بیشتر بخوانید</a>
-                            <div class="social mt-4">
-                            <div class="user-input seen-count">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                <span class="count">251</span>
-                            </div>
-                            <div class="user-input like">
-                                <button class="like" href="#" role="button">
-                                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                </button>
-                                <span class="count">251</span>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-12 mt-4">
-                    <div class=" border-box-2">
-                        <div class="row">
-                        <div class="col-md-6">
-                            <img class="img-fluid news-image" src="assets/img/thumb/profile.jpg" alt="">
-                        </div>
-                        <div class="col-md-6 news-content">
-                            <a class="title" href="#">لورم ایپسوم متن ساختگی با تولید سادگی</a>
-                            <br>
-                            <span class="date">۱۳۹۷ . بهمن ۲۴</span>
-                            <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با .هدف بهبود ابزارهای کاربردی میباشد
-                            </p>
-                            <a class="btn_2" href="#">بیشتر بخوانید</a>
-                            <div class="social">
-                            <div class="user-input seen-count">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                <span class="count">251</span>
-                            </div>
-                            <div class="user-input like">
-                                <button class="like" href="#" role="button">
-                                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                </button>
-                                <span class="count">251</span>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-12 text-center p-3">
-                    <ul class="pagination">
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li><i class="fa fa-ellipsis-h mt-2" aria-hidden="true"></i></li>
-                        <li class="page-item"><a class="page-link" href="#">10</a></li>
-                        <li class="page-item"><a class="page-link" href="#">11</a></li>
-                        <li class="page-item"><a class="page-link" href="#">12</a></li>
-                    </ul>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-
-            <div class="border-box-2 overflow_hidden mt-4 d-none d-md-block">
-                <div class="header-section">
-                <div class="row">
-                    <div class="col-md-4 col-6">
-                    <h3 class="heading-style-3">بازی بعدی</h3>
-                    </div>
-                    <div class="col-md-8 col-6"></div>
-                </div>
-                </div>
-                <div class="row mx-0 justify-content-center relative mt-4">
-                <div class="row mx-0 width-full">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-2">
-                    <img class="img-fluid" src="assets/img/thumb/profile.jpg" alt="">
-                    <p class="text-center mt-2"><a class="black" href="#">علی صائمی</a></p>
-                    </div>
-                    <div class="col-md-2">
-                    <img class="img-fluid" src="assets/img/thumb/profile.jpg" alt="">
-                    <p class="text-center mt-2"><a class="black" href="#">علی صائمی</a></p>
-                    </div>
-                    <div class="col-md-2">
-                    <img class="img-fluid" src="assets/img/thumb/profile.jpg" alt="">
-                    <p class="text-center mt-2"><a class="black" href="#">علی صائمی</a></p>
-                    </div>
-                    <div class="col-md-2">
-                    <img class="img-fluid" src="assets/img/thumb/profile.jpg" alt="">
-                    <p class="text-center mt-2"><a class="black" href="#">علی صائمی</a></p>
-                    </div>
-                    <div class="col-md-2">
-                    <img class="img-fluid" src="assets/img/thumb/profile.jpg" alt="">
-                    <p class="text-center mt-2"><a class="black" href="#">علی صائمی</a></p>
-                    </div>
-                    <div class="col-md-1"></div>
-                </div>
-                </div>
-            </div>
-
-
-            </div>
-            <div class="col-lg-4 right-side">
-            <div class="demo-leagues border-box-2 no-padding overflow_hidden">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link item_1 active" id="world-tab" data-toggle="tab" href="#world" role="tab" aria-controls="world" aria-selected="true">لیگ جهانی</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link item_2" id="champion-tab" data-toggle="tab" href="#champion" role="tab" aria-controls="champion" aria-selected="false">لیگ قهرمانی</a>
-
-                </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="world" role="tabpanel" aria-labelledby="world-tab">
-                    <div class="table-league text-center">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th scope="col">ربتبه</th>
-                            <th scope="col">بازیکن</th>
-                            <th scope="col">تیم</th>
-                            <th scope="col">تعداد بازی</th>
-                            <th scope="col">امتیاز</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row faNum">1</th>
-                            <td>علی شاه حسینی</td>
-                            <td>بارسلونا</td>
-                            <td class="faNum">4</td>
-                            <td class="faNum">20</td>
-                        </tr>
-                        <tr>
-                            <th scope="row faNum">1</th>
-                            <td>علی شاه حسینی</td>
-                            <td>بارسلونا</td>
-                            <td class="faNum">4</td>
-                            <td class="faNum">20</td>
-                        </tr>
-                        <tr>
-                            <th scope="row faNum">1</th>
-                            <td>علی شاه حسینی</td>
-                            <td>بارسلونا</td>
-                            <td class="faNum">4</td>
-                            <td class="faNum">20</td>
-                        </tr>
-                        <tr>
-                            <th scope="row faNum">1</th>
-                            <td>علی شاه حسینی</td>
-                            <td>بارسلونا</td>
-                            <td class="faNum">4</td>
-                            <td class="faNum">20</td>
-                        </tr>
-                        <tr>
-                            <th scope="row faNum">1</th>
-                            <td>علی شاه حسینی</td>
-                            <td>بارسلونا</td>
-                            <td class="faNum">4</td>
-                            <td class="faNum">20</td>
-                        </tr>
-                        <tr>
-                            <th scope="row faNum">1</th>
-                            <td>علی شاه حسینی</td>
-                            <td>بارسلونا</td>
-                            <td class="faNum">4</td>
-                            <td class="faNum">20</td>
-                        </tr>
-                        <tr>
-                            <th scope="row faNum">1</th>
-                            <td>علی شاه حسینی</td>
-                            <td>بارسلونا</td>
-                            <td class="faNum">4</td>
-                            <td class="faNum">20</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="champion" role="tabpanel" aria-labelledby="champion-tab">
-                    <div class="table-league text-center">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th scope="col">ربتبه</th>
-                            <th scope="col">بازیکن</th>
-                            <th scope="col">تیم</th>
-                            <th scope="col">تعداد بازی</th>
-                            <th scope="col">امتیاز</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row faNum">1</th>
-                            <td>علی شاه حسینی</td>
-                            <td>بارسلونا</td>
-                            <td class="faNum">4</td>
-                            <td class="faNum">20</td>
-                        </tr>
-                        <tr>
-                            <th scope="row faNum">1</th>
-                            <td>علی شاه حسینی</td>
-                            <td>بارسلونا</td>
-                            <td class="faNum">4</td>
-                            <td class="faNum">20</td>
-                        </tr>
-                        <tr>
-                            <th scope="row faNum">1</th>
-                            <td>علی شاه حسینی</td>
-                            <td>بارسلونا</td>
-                            <td class="faNum">4</td>
-                            <td class="faNum">20</td>
-                        </tr>
-                        <tr>
-                            <th scope="row faNum">1</th>
-                            <td>علی شاه حسینی</td>
-                            <td>بارسلونا</td>
-                            <td class="faNum">4</td>
-                            <td class="faNum">20</td>
-                        </tr>
-                        <tr>
-                            <th scope="row faNum">1</th>
-                            <td>علی شاه حسینی</td>
-                            <td>بارسلونا</td>
-                            <td class="faNum">4</td>
-                            <td class="faNum">20</td>
-                        </tr>
-                        <tr>
-                            <th scope="row faNum">1</th>
-                            <td>علی شاه حسینی</td>
-                            <td>بارسلونا</td>
-                            <td class="faNum">4</td>
-                            <td class="faNum">20</td>
-                        </tr>
-                        <tr>
-                            <th scope="row faNum">1</th>
-                            <td>علی شاه حسینی</td>
-                            <td>بارسلونا</td>
-                            <td class="faNum">4</td>
-                            <td class="faNum">20</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    </div>
-                </div>
-                </div>
-            </div>
-            <a href="#">
-                <div class="thumbnail mt-4 d-none d-lg-block d-xl-block">
-                <div class="caption">
+          </a>
+          <div class="d-sm-block d-none d-lg-none d-xl-none">
+            <div class="row ">
+              <div class="col-sm-6 col-md-6">
+                <div class="thumbnail mt-4">
+                  <div class="caption">
                     <div class="thumbnail-content">
-                    <p>برای مشاهده این گالری</p>
+                      <p>برای مشاهده این گالری</p>
                     </div>
+                  </div>
+                  <img src="{% static 'assets/img/thumb/profile.jpg' %}" alt="...">
                 </div>
-                <img src="assets/img/thumb/gallary.jpg" alt="...">
-                </div>
-            </a>
-            <div class="d-sm-block d-none d-lg-none d-xl-none">
-                <div class="row ">
-                <div class="col-sm-6 col-md-6">
-                    <div class="thumbnail mt-4">
-                    <div class="caption">
-                        <div class="thumbnail-content">
-                        <p>برای مشاهده این گالری</p>
-                        </div>
+              </div>
+              <div class="col-sm-6 col-md-6">
+                <div class="thumbnail mt-4">
+                  <div class="caption">
+                    <div class="thumbnail-content">
+                      <p>برای مشاهده این گالری</p>
                     </div>
-                    <img src="assets/img/thumb/gallary.jpg" alt="...">
-                    </div>
+                  </div>
+                  <img src="{% static 'assets/img/thumb/profile.jpg' %}" alt="...">
                 </div>
-                <div class="col-sm-6 col-md-6">
-                    <div class="thumbnail mt-4">
-                    <div class="caption">
-                        <div class="thumbnail-content">
-                        <p>برای مشاهده این گالری</p>
-                        </div>
-                    </div>
-                    <img src="assets/img/thumb/gallary.jpg" alt="...">
-                    </div>
-                </div>
-                </div>
+              </div>
             </div>
+          </div>
 
-            <div class="news-letter border-box-2 overflow_hidden mt-4">
-                <div class="header-section">
-                <div class="row">
-                    <div class="col-6">
-                    <h3 class="heading-style-3">خبرنامه</h3>
-                    </div>
-                    <div class="col-6"></div>
+          <div class="news-letter border-box-2 overflow_hidden mt-4">
+            <div class="header-section">
+              <div class="row">
+                <div class="col-6">
+                  <h3 class="heading-style-3">خبرنامه</h3>
                 </div>
-                </div>
-                <div class="content">
-                <h4 class="heading-style-4">اشتراک بگیرید</h4>
-                <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه</p>
-                <div class="form-group width-full">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="نام شما">
-                </div>
-                <div class="form-group width-full">
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="ایمیل یا آیدی شما">
-                </div>
-                <div class="row">
-                    <div class="col-4">
-                    <label class="cutomized-form-radio">روزانه
-                        <input type="radio" checked="checked" name="radio">
-                        <span class="checkmark"></span>
-                    </label>
-                    </div>
-                    <div class="col-4">
-                    <label class="cutomized-form-radio">هفتگی
-                        <input type="radio" checked="checked" name="radio">
-                        <span class="checkmark weekly"></span>
-                    </label>
-                    </div>
-                    <div class="col-4">
-                    <label class="cutomized-form-radio">ماهانه
-                        <input type="radio" checked="checked" name="radio">
-                        <span class="checkmark"></span>
-                    </label>
-                    </div>
-                </div>
-                <a class="btn_1 center-box width-full text-center" href="#">خرید بلیط</a>
-                </div>
+                <div class="col-6"></div>
+              </div>
             </div>
+            <div class="content">
+              <h4 class="heading-style-4">اشتراک بگیرید</h4>
+              <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                است. چاپگرها و متون بلکه</p>
+              <div class="form-group width-full">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                  placeholder="نام شما">
+              </div>
+              <div class="form-group width-full">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="ایمیل یا آیدی شما">
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <label class="cutomized-form-radio">روزانه
+                    <input type="radio" checked="checked" name="radio">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div class="col-4">
+                  <label class="cutomized-form-radio">هفتگی
+                    <input type="radio" checked="checked" name="radio">
+                    <span class="checkmark weekly"></span>
+                  </label>
+                </div>
+                <div class="col-4">
+                  <label class="cutomized-form-radio">ماهانه
+                    <input type="radio" checked="checked" name="radio">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+              <a class="btn_1 center-box width-full text-center" href="#">خرید بلیط</a>
+            </div>
+          </div>
 
-            <div class="border-box-2 social-media-1 mt-4 relative d-none d-lg-block d-xl-block">
-                <div class="header-section">
-                <div class="row">
-                    <div class="col-6">
-                    <h3 class="heading-style-3">خبرنامه</h3>
-                    </div>
-                    <div class="col-6"></div>
+          <div class="border-box-2 social-media-1 mt-4 relative d-none d-lg-block d-xl-block">
+            <div class="header-section">
+              <div class="row">
+                <div class="col-6">
+                  <h3 class="heading-style-3">خبرنامه</h3>
                 </div>
-                </div>
-                <ul class="list-inline mb-0">
-                <li class="list-inline-item"><a class="facebook" href="#"><i class="fa fa-facebook-square hvr-grow" aria-hidden="true"></i></a></li>
-                <li class="list-inline-item"><a class="twitter" href="#"><i class="fa fa-twitter hvr-grow" aria-hidden="true"></i></a></li>
-                <li class="list-inline-item"><a class="instagram" href="#"><i class="fa fa-instagram hvr-grow" aria-hidden="true"></i></a></li>
-                <li class="list-inline-item"><a class="telegram" href="#"><i class="fa fa-telegram" aria-hidden="true"></i></a></li>
-                </ul>
+                <div class="col-6"></div>
+              </div>
             </div>
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item"><a class="facebook" href="#"><i class="fa fa-facebook-square hvr-grow"
+                    aria-hidden="true"></i></a></li>
+              <li class="list-inline-item"><a class="twitter" href="#"><i class="fa fa-twitter hvr-grow"
+                    aria-hidden="true"></i></a></li>
+              <li class="list-inline-item"><a class="instagram" href="#"><i class="fa fa-instagram hvr-grow"
+                    aria-hidden="true"></i></a></li>
+              <li class="list-inline-item"><a class="telegram" href="#"><i class="fa fa-telegram"
+                    aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
 
-            <div class="border-box-2 mt-4 latest-matches-1">
-                <div class="header-section">
-                <div class="row">
-                    <div class="col-6">
-                    <h3 class="heading-style-3">خبرنامه</h3>
-                    </div>
-                    <div class="col-6"></div>
+          <div class="border-box-2 mt-4 latest-matches-1">
+            <div class="header-section">
+              <div class="row">
+                <div class="col-6">
+                  <h3 class="heading-style-3">خبرنامه</h3>
                 </div>
-                </div>
-                <div class="container-fluid">
-                <div class="row mt-4">
-                    <div class="col-12">
-                    <div class="row">
-                        <div class="col-4 text-center">
-                        <img class="width-full" src="assets/img/thumb/team_1.png" alt="">
-                        <h3 class="heading-style-6">واشنگتن</h3>
-                        <span class="text_bold">آمریکا</span>
-                        </div>
-                        <div class="col-4 scores text-center relative top-relative-15">
-                        <span class="text_bold winner score">105</span>
-                        <span class="text_bold middeler">:</span>
-                        <span class="text_bold loser score">99</span>
-                        <div class="news-detail-1 text-center">
-                            <span>home</span>
-                        </div>
-                        </div>
-                        <div class="col-4 text-center">
-                        <img class="width-full" src="assets/img/thumb/team_2.png" alt="">
-                        <h3 class="heading-style-6">واشنگتن</h3>
-                        <span class="text_bold">آمریکا</span>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-12 px-0">
-                    <div class="news-detail-1 text-center">
-                        <hr>
-                        <span>new yorks studiom / 14 june 2018</span>
-                    </div>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-12">
-                    <div class="row">
-                        <div class="col-4 text-center">
-                        <img class="width-full" src="assets/img/thumb/team_1.png" alt="">
-                        <h3 class="heading-style-6">واشنگتن</h3>
-                        <span class="text_bold">آمریکا</span>
-                        </div>
-                        <div class="col-4 scores text-center relative top-relative-15">
-                        <span class="text_bold winner score">105</span>
-                        <span class="text_bold middeler">:</span>
-                        <span class="text_bold loser score">99</span>
-                        <div class="news-detail-1 text-center">
-                            <span>home</span>
-                        </div>
-                        </div>
-                        <div class="col-4 text-center">
-                        <img class="width-full" src="assets/img/thumb/team_2.png" alt="">
-                        <h3 class="heading-style-6">واشنگتن</h3>
-                        <span class="text_bold">آمریکا</span>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-12 px-0">
-                    <div class="news-detail-1 text-center">
-                        <hr>
-                        <span>new yorks studiom / 14 june 2018</span>
-                    </div>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-12">
-                    <div class="row">
-                        <div class="col-4 text-center">
-                        <img class="width-full" src="assets/img/thumb/team_1.png" alt="">
-                        <h3 class="heading-style-6">واشنگتن</h3>
-                        <span class="text_bold">آمریکا</span>
-                        </div>
-                        <div class="col-4 scores text-center relative top-relative-15">
-                        <span class="text_bold winner score">105</span>
-                        <span class="text_bold middeler">:</span>
-                        <span class="text_bold loser score">99</span>
-                        <div class="news-detail-1 text-center">
-                            <span>home</span>
-                        </div>
-                        </div>
-                        <div class="col-4 text-center">
-                        <img class="width-full" src="assets/img/thumb/team_2.png" alt="">
-                        <h3 class="heading-style-6">واشنگتن</h3>
-                        <span class="text_bold">آمریکا</span>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-12 px-0">
-                    <div class="news-detail-1 text-center">
-                        <hr>
-                        <span>new yorks studiom / 14 june 2018</span>
-                    </div>
-                    </div>
-                </div>
-                </div>
+                <div class="col-6"></div>
+              </div>
             </div>
+            <div class="container-fluid">
+              <div class="row mt-4">
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-4 text-center">
+                      <img class="width-full" src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
+                      <h3 class="heading-style-6">واشنگتن</h3>
+                      <span class="text_bold">آمریکا</span>
+                    </div>
+                    <div class="col-4 scores text-center relative top-relative-15">
+                      <span class="text_bold winner score">105</span>
+                      <span class="text_bold middeler">:</span>
+                      <span class="text_bold loser score">99</span>
+                      <div class="news-detail-1 text-center">
+                        <span>home</span>
+                      </div>
+                    </div>
+                    <div class="col-4 text-center">
+                      <img class="width-full" src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
+                      <h3 class="heading-style-6">واشنگتن</h3>
+                      <span class="text_bold">آمریکا</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 px-0">
+                  <div class="news-detail-1 text-center">
+                    <hr>
+                    <span>new yorks studiom / 14 june 2018</span>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-4 text-center">
+                      <img class="width-full" src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
+                      <h3 class="heading-style-6">واشنگتن</h3>
+                      <span class="text_bold">آمریکا</span>
+                    </div>
+                    <div class="col-4 scores text-center relative top-relative-15">
+                      <span class="text_bold winner score">105</span>
+                      <span class="text_bold middeler">:</span>
+                      <span class="text_bold loser score">99</span>
+                      <div class="news-detail-1 text-center">
+                        <span>home</span>
+                      </div>
+                    </div>
+                    <div class="col-4 text-center">
+                      <img class="width-full" src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
+                      <h3 class="heading-style-6">واشنگتن</h3>
+                      <span class="text_bold">آمریکا</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 px-0">
+                  <div class="news-detail-1 text-center">
+                    <hr>
+                    <span>new yorks studiom / 14 june 2018</span>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-4 text-center">
+                      <img class="width-full" src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
+                      <h3 class="heading-style-6">واشنگتن</h3>
+                      <span class="text_bold">آمریکا</span>
+                    </div>
+                    <div class="col-4 scores text-center relative top-relative-15">
+                      <span class="text_bold winner score">105</span>
+                      <span class="text_bold middeler">:</span>
+                      <span class="text_bold loser score">99</span>
+                      <div class="news-detail-1 text-center">
+                        <span>home</span>
+                      </div>
+                    </div>
+                    <div class="col-4 text-center">
+                      <img class="width-full" src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
+                      <h3 class="heading-style-6">واشنگتن</h3>
+                      <span class="text_bold">آمریکا</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 px-0">
+                  <div class="news-detail-1 text-center">
+                    <hr>
+                    <span>new yorks studiom / 14 june 2018</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-<div class="next-match border-box-2 overflow_hidden mt-4 d-none d-lg-block">
-                <div class="header-section">
-                <div class="row">
-                    <div class="col-6">
-                    <h3 class="heading-style-3 text-center">بازی بعدی</h3>
-                    </div>
-                    <div class="col-6"></div>
+          <div class="next-match border-box-2 overflow_hidden mt-4 d-none d-lg-block">
+            <div class="header-section">
+              <div class="row">
+                <div class="col-6">
+                  <h3 class="heading-style-3 text-center">بازی بعدی</h3>
                 </div>
-                </div>
-                <div class="row mx-0 relative">
-                <h4 class="heading-style-3">لورم ایپسوم متن ساختگی با تولید سادگی</h4>
-                <p class="date-match">15:00 ، 1397 ، تیر 10 ، جمع</p>
-                <div class="row mx-0 width-full">
-                    <div class="col-5"><img class="img-fluid team" src="assets/img/thumb/team_2.png" alt=""></div>
-                    <div class="col-2">
-                    <p class="versous">VS</p>
-                    </div>
-                    <div class="col-5"><img class="img-fluid team" src="assets/img/thumb/team_1.png" alt=""></div>
-                </div>
-                <div class="col-12 text-center">
-                    <a class="btn_1" href="#">خرید بلیط</a>
-                </div>
-                <p class="start-at">شروع در</p>
-                <div class="time-left col-12">
-                    <div class="time">
-                    <p class="faNum countDown_1" id="firstClock"></p>
-                    </div>
-                    <div class="time-letters">
-                    <ul class="list-inline text-center">
-                        <li class="list-inline-item"><span>دقیقه</span></li>
-                        <li class="list-inline-item"><span>دقیقه</span></li>
-                        <li class="list-inline-item"><span>دقیقه</span></li>
-                        <li class="list-inline-item"><span>دقیقه</span></li>
-                    </ul>
-                    </div>
-                </div>
-                </div>
+                <div class="col-6"></div>
+              </div>
             </div>
+            <div class="row mx-0 relative">
+              <h4 class="heading-style-3">لورم ایپسوم متن ساختگی با تولید سادگی</h4>
+              <p class="date-match">15:00 ، 1397 ، تیر 10 ، جمع</p>
+              <div class="row mx-0 width-full">
+                <div class="col-5"><img class="img-fluid team" src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
+                </div>
+                <div class="col-2">
+                  <p class="versous">VS</p>
+                </div>
+                <div class="col-5"><img class="img-fluid team" src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
+                </div>
+              </div>
+              <div class="col-12 text-center">
+                <a class="btn_1" href="#">خرید بلیط</a>
+              </div>
+              <p class="start-at">شروع در</p>
+              <div class="time-left col-12">
+                <div class="time">
+                  <p class="faNum countDown_1" id="firstClock"></p>
+                </div>
+                <div class="time-letters">
+                  <ul class="list-inline text-center">
+                    <li class="list-inline-item"><span>دقیقه</span></li>
+                    <li class="list-inline-item"><span>دقیقه</span></li>
+                    <li class="list-inline-item"><span>دقیقه</span></li>
+                    <li class="list-inline-item"><span>دقیقه</span></li>
+                  </ul>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-        </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
 </main>
 {% endblock %}

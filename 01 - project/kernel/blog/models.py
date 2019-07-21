@@ -33,6 +33,9 @@ from painless.models.mixins import OrganizedMixin
 from painless.models.mixins import TimeStampedMixin
 from painless.models.managers import PostPublishedManager
 from django.core.validators import FileExtensionValidator
+from ckeditor_uploader.fields import RichTextUploadingField
+from django.conf import settings
+from django.urls import reverse
 
 status = options.PostStatus(is_charfield = False)
 
@@ -63,7 +66,7 @@ class Post(TimeStampedMixin):
     title = models.CharField(max_length = 128, unique_for_month='published_at', help_text = 'must be unique in a month')
     slug = models.CharField(max_length = 128, unique_for_month='published_at')
     banner = models.ImageField(upload_to = 'blog', null = True, blank = True)
-    content = models.TextField()
+    content = RichTextUploadingField()
     summary = models.CharField(max_length = 128)
     # is_published = models.BooleanField(default = False)# False = Draft & True = Publish
     # status = models.CharField(max_length = 1, choices = POST_STATUS, default = DRAFT)
@@ -72,14 +75,14 @@ class Post(TimeStampedMixin):
     # relممنون 
     tag = models.ManyToManyField('Tag', related_name = 'post')
     category = models.ForeignKey('Category', on_delete=models.PROTECT, related_name = 'posts')
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name = 'posts')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name = 'posts')
     
     # datetime
     published_at = models.DateTimeField(default=timezone.now)
 
 
     objects = models.Manager()
-    condition = PostPublishedManager()
+    posts = PostPublishedManager()
 
     class Meta:
         # db_table = 'article'
@@ -90,18 +93,26 @@ class Post(TimeStampedMixin):
         #### DB Admin (UML) ###
         # unique_together = (('title', 'category'),)
         # index_together = ["title", 'published_at']
+    
+    def get_absolute_url(self):
+        return reverse('blog:post_detail', args=[ self.slug])
+
 
     def __str__(self):
         return self.title
 
 class Comment(TimeStampedMixin):
+    # commented_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
     post = models.ForeignKey(Post, on_delete = models.CASCADE, related_name='comments')
     email = models.EmailField()
-    reply_to = models.ForeignKey('self',null=True, blank=True, on_delete=models.CASCADE, related_name='replies')
+    parent = models.ForeignKey('self',null=True, blank=True, on_delete=models.CASCADE, related_name='replies')
     
     title = models.CharField(max_length= 128, unique = True)
     content = models.TextField()
     active = models.BooleanField(default=True)
+
+    def children(self):
+        return Comment.objects.filter(parent = self)
 
     class Meta:
         ordering = ('-created',)
@@ -119,7 +130,7 @@ class Comment(TimeStampedMixin):
 class Message(models.Model):
     title = models.CharField(max_length = 128)
     description = models.TextField( blank = True, null = True )
-    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
     answer = models.ForeignKey("self", null = True, blank = True, on_delete = models.SET_NULL)
     ticket = models.ForeignKey("Ticketing", on_delete = models.CASCADE, related_name = 'message')
 

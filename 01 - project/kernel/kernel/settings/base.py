@@ -13,14 +13,16 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'rest_framework',
     'widget_tweaks',
+    'debug_toolbar',
     'robots',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-     'django.middleware.gzip.GZipMiddleware',
-    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.gzip.GZipMiddleware',
+    # 'django.middleware.cache.UpdateCacheMiddleware',
     # 'htmlmin.middleware.HtmlMinifyMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
@@ -29,7 +31,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
     
 
@@ -45,7 +47,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'app.apptemplates.load_setting',
             ],
+            # 'libraries':{
+                # 'my_templatetag':'app.templatetag.my_templatetag',
+            # }
         },
     },
 ]
@@ -68,7 +74,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ROOT_URLCONF = 'kernel.urls'
 WSGI_APPLICATION = 'kernel.wsgi.application'
 
-# AUTH_USER_MODEL = 'mysite.Contact'
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -84,6 +89,8 @@ STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'media', 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media', 'upload')
 
+CART_SESSION_ID = 'cart'
+
 MEDIA_URL = 'media/'
 
 STATICFILES_DIRS = (
@@ -96,9 +103,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'mystaticfiles')
 # minifers
 HTML_MINIFY = True
 # caches
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'my_cache_table',
-    }
-}
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+#         'LOCATION': 'my_cache_table',
+#     }
+# }
+
+# ckeditor configuration
+CKEDITOR_UPLOAD_PATH = 'ckeditor/'
+
+
+

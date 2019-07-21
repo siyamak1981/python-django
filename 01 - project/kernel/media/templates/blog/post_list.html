@@ -1,18 +1,17 @@
 {% extends 'shared/master.html' %}
+{% load tags %}
 {% load static %}
 {% block body %}
 
 <main>
     <div class="banner_3">
-      <h1 class="heading-style-1">
-        اخبار
-      </h1>
+      
       <div class="location">
-        <a href="#">خانه</a>
-        <span>/</span>
-        <a href="#">اخبار</a>
+        <a href="{% url 'mysite:landing' %}">خانه</a>
         <span>/</span>
         <a class="active" href="#">لیست</a>
+        <span>/</span>
+        <a href="#">اخبار</a>
       </div>
     </div>
 
@@ -25,16 +24,16 @@
                 <div class=" border-box-2">
                   <div class="row">
                     <div class="col-md-6">
-                      <img class="img-fluid news-image" src="{{ post.banner.url }}" alt="post.slug">
+                      <img class="img-fluid news-image" src="../../{{ post.banner.url }}" alt="post.slug">
                     </div>
                     <div class="col-md-6 news-content">
-                      <a class="title" href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a>
+                      <a class="title" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
                       <br>
-                      <span class="date">{{ post.published_at }}</span>
+                      <span class="date">{{ post.published_at | jalali_date }}</span>
                       <p class="text">
-                        {{ post.summary }}
+                        {{ post.content|safe|truncatechars:50 }}
                       </p>
-                      <a class="btn_2" href="{% url 'blog:post' slug=post.slug %}">بیشتر بخوانید</a>
+                      <a class="btn_2" href="{{ post.get_absolute_url }}">بیشتر بخوانید</a>
                       <hr class="hr-divider-1">
                       <hr class="hr-divider-2">
                       <div class="social">
@@ -58,19 +57,18 @@
                   </div>
                 </div>
               </div>
+
+              {% if forloop.counter == 2 %}
+              <div class ="clearfix"></div>
+             {% include 'partials/_pagination.html' with page=posts %}
+             {% else %}
+             <div class ="clearfix p-3"></div>
+             {% include 'partials/_pagination.html' with page=posts %}
+              {% endif %}
             {% endfor %}
             
 
             
-            <ul class="pagination left-margin">
-              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li><i class="fa fa-ellipsis-h mt-2" aria-hidden="true"></i></li>
-              <li class="page-item"><a class="page-link" href="#">10</a></li>
-              <li class="page-item"><a class="page-link" href="#">11</a></li>
-              <li class="page-item"><a class="page-link" href="#">12</a></li>
-            </ul>
           </div>
           <div class="col-lg-4 left_side d-none d-lg-block">
             <div class="col-md-12">

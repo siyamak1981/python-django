@@ -1,0 +1,248 @@
+{% extends 'shared/master.html' %}
+{% load static %}
+{% block scripts %}
+<script src="{% static 'assets/features/owl-carousel/js/owl.carousel.js' %}"></script>
+{% endblock %}
+{% block body %}
+
+<main>
+<div class="banner_3">
+    <h1 class="heading-style-1">
+    اخبار
+    </h1>
+    <div class="location">
+    <a href="{% url 'mysite:landing' %}">خانه</a>
+    <span>/</span>
+    <a href="{% url 'blog:posts' %}">اخبار</a>
+    <span>/</span>
+    <a href="{% url 'sportboard:news' %}">لیست اخبار با نوار کناری</a>
+    <span>/</span>
+    <a class="active" href="#">لیست</a>
+    </div>
+</div>
+
+<div class="news-section specific-news boss-person">
+    <div class="container">
+    <div class="row">
+        {% if boss %} 
+     <div class="col-lg-8 right_side news-list">
+        <div class="col-12">
+            <div class=" border-box-2 specified-news">
+            <div class="row">
+                <div class="col-md-12">
+                <div class="display-flex-r mx-0">
+                    <div class="profile-box">
+                    <img class="img-fluid news-image" src=" /{{ boss.role.biopic.url }}" alt="">
+                    </div>
+                    <div class="news-content">
+                    <a class="title" href="#">{{ boss.role.title }}</a>
+                    <br>
+                    <span class="date">{{ boss.role.content }}</span>
+                    <p class="text mt-4">تحصیلات : </p>
+                    <p class="text">۱۳۹۵ / ۶ / ۱۲ : فعالیت ش</p>
+                    <hr class="hr-divider-1 mt-4">
+                    <hr class="hr-divider-2">
+                    <div class="social">
+                        <div class="user-input seen-count">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        <span class="count">251</span>
+                        </div>
+                        <div class="user-input like liked">
+                            <button class="like liked" href="#" role="button">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            </button>
+                            <span class="count">251</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {% for post in latest_post %}
+                <div class="simple-divider mt-0"></div>
+          <div class="post-content">
+                <p class="text">{{ post.content }}
+                </p>
+                </div>
+                {% endfor %}
+                
+                <div class="simple-divider"></div>
+                <div class="ticket-1">
+                <a class=" unknown-btn d-none d-sm-block" href="#">دکمه</a>
+                </div>
+                <div class="ticket-1 ml-2">
+                <a class=" unknown-btn d-none d-sm-block" href="#">دکمه</a>
+                </div>
+                <div class="ticket-1 ml-2">
+                <a class=" unknown-btn d-none d-sm-block" href="#">دکمه</a>
+                </div>
+                <ul class="pagination post">
+                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-telegram" aria-hidden="true"></i></a></li>
+                <li class="page-item"><a class="page-link no-smoth" href="#"><i class="fa fa-telegram" aria-hidden="true"></i></a></li>
+                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-telegram" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        </div>{% endif %}
+      
+        <div class="col-lg-4 left_side">
+        <div class="col-md-12">
+            <div class="border-box-2 overflow_hidden">
+            <div class="header-section">
+                <div class="row">
+                <div class="col-6">
+                    <h3 class="heading-style-3">خبر جدید</h3>
+                </div>
+                <div class="col-6"></div>
+                </div>
+            </div>
+            <div id="owl-seven" class="owl-carousel owl-theme">
+                <div class="item">
+                <img src="{% static 'assets/img/thumb/profile.jpg' %}" alt="" />
+                <h5 class="text-center">جام کشوری</h5>
+                <p class="date text-center">۱۳۹۷ . تیر ۳۱</p>
+                </div>
+                <div class="item">
+                <img src="{% static 'assets/img/thumb/profile.jpg' %}" alt="" />
+                <h5 class="text-center">جام کشوری</h5>
+                <p class="date text-center">۱۳۹۷ . تیر ۳۱</p>
+                </div>
+            </div>
+            </div>
+
+            <div class="new-news border-box-2 overflow_hidden mt-4 d-none d-lg-block">
+            <div class="header-section">
+                <div class="row">
+                <div class="col-6">
+                    <h3 class="heading-style-3">خبر جدید</h3>
+                </div>
+                <div class="col-6"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-12 item">
+                <div class="row">
+                    <div class="col-4">
+                    <a href="#"><img class="img-fluid" src="{% static 'assets/img/thumb/profile.jpg' %}" alt=""></a>
+                    </div>
+                    <div class="col-8">
+                    <h3 class="heading-style-4">لورم ایپسوم متن ساختگی با تولید سادگی</h3>
+                    <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                    <span class="date">۴ بهمن . ۱۳۹۷ / سپهر اکبرزاده</span>
+                    </div>
+                </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-12 item">
+                <div class="row">
+                    <div class="col-4">
+                    <a href="#"><img class="img-fluid" src="{% static 'assets/img/thumb/profile.jpg' %}" alt=""></a>
+                    </div>
+                    <div class="col-8">
+                    <h3 class="heading-style-4">لورم ایپسوم متن ساختگی با تولید سادگی</h3>
+                    <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                    <span class="date">۴ بهمن . ۱۳۹۷ / سپهر اکبرزاده</span>
+                    </div>
+                </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-12 item">
+                <div class="row">
+                    <div class="col-4">
+                    <a href="#"><img class="img-fluid" src="{% static 'assets/img/thumb/profile.jpg' %}" alt=""></a>
+                    </div>
+                    <div class="col-8">
+                    <h3 class="heading-style-4">لورم ایپسوم متن ساختگی با تولید سادگی</h3>
+                    <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                    <span class="date">۴ بهمن . ۱۳۹۷ / سپهر اکبرزاده</span>
+                    </div>
+                </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-12 item">
+                <div class="row">
+                    <div class="col-4">
+                    <a href="#"><img class="img-fluid" src="{% static 'assets/img/thumb/profile.jpg' %}" alt=""></a>
+                    </div>
+                    <div class="col-8">
+                    <h3 class="heading-style-4">لورم ایپسوم متن ساختگی با تولید سادگی</h3>
+                    <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                    <span class="date">۴ بهمن . ۱۳۹۷ / سپهر اکبرزاده</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="news-letter border-box-2 overflow_hidden mt-4 d-none d-lg-block">
+            <div class="header-section">
+                <div class="row">
+                <div class="col-6">
+                    <h3 class="heading-style-3">خبرنامه</h3>
+                </div>
+                <div class="col-6"></div>
+                </div>
+            </div>
+            <div class="content">
+                <h4 class="heading-style-4">اشتراک بگیرید</h4>
+                <p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه</p>
+                <div class="form-group width-full">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="نام شما">
+                </div>
+                <div class="form-group width-full">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="ایمیل یا آیدی شما">
+                </div>
+                <div class="row">
+                <div class="col-4">
+                    <label class="cutomized-form-radio">روزانه
+                    <input type="radio" checked="checked" name="radio">
+                    <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="col-4">
+                    <label class="cutomized-form-radio">هفتگی
+                    <input type="radio" checked="checked" name="radio">
+                    <span class="checkmark weekly"></span>
+                    </label>
+                </div>
+                <div class="col-4">
+                    <label class="cutomized-form-radio">ماهانه
+                    <input type="radio" checked="checked" name="radio">
+                    <span class="checkmark"></span>
+                    </label>
+                </div>
+                </div>
+                <a class="btn_1 center-box width-full text-center" href="#">خرید بلیط</a>
+            </div>
+            </div>
+
+            <div class="social-media-2 mt-3">
+            <div class="row">
+                <div class="col-4">
+                <div class="facebook item">
+                    <a class="icon" href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a class="action" href="#"><h5>SUSCRIBE</h5></a>
+                    <p>5400 LIKES</p>
+                </div>
+                </div>
+                <div class="col-4">
+                <div class="twitter item">
+                    <a class="icon" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a class="action" href="#"><h5>SUSCRIBE</h5></a>
+                    <p>5400 LIKES</p>
+                </div>
+                </div>
+                <div class="col-4">
+                <div class="rss item">
+                    <a class="icon" href="#"><i class="fa fa-rss" aria-hidden="true"></i></a>
+                    <a class="action" href="#"><h5>SUSCRIBE</h5></a>
+                    <p>5400 LIKES</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</main>
+{% endblock %}

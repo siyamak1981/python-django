@@ -1,0 +1,249 @@
+{% extends 'shared/master.html' %}
+{% load static %}
+
+{% block scripts %}
+<script src="{% static 'assets/features/owl-carousel/js/owl.carousel.js' %}"></script>
+{% endblock %}
+{% block body %}
+<main>
+  <div class="banner_3">
+    <h1 class="heading-style-1">
+      اخبار
+    </h1>
+    <div class="location">
+      <a href="{% url 'mysite:landing' %}">خانه</a>
+      <span>/</span>
+      <a class="active" href="#">لیست</a>
+    </div>
+  </div>
+
+  <div class="shop-list">
+    <div class="container">
+      <div class="row">
+        <div class="right-side col-lg-4 d-none d-lg-block">
+          <div class="border-box-3 menu mt-4">
+            <div class="header item">
+              <h3>دسته بندی ها</h3>
+            </div>
+            {% for c in categories %}
+            <div {% if category.slug == c.slug %}class ="selected"{% endif %}></div>
+            <a href="{{ c.get_absolute_url }}" class="item">
+              {{ c.title }}
+            </a>
+            {% endfor %}
+          </div>
+          <div class="border-box-3 filter-sizes mt-4">
+            <div class="header item">
+              <h3>دسته بندی ها</h3>
+            </div>
+            <div class="item checkbox">
+              <div class="custom-checkbox">
+                <input type="checkbox" id="cb1">
+                <label for="cb1"></label>
+                <span>بزرگ</span>
+              </div>
+            </div>
+            <div class="item checkbox">
+              <div class="custom-checkbox">
+                <input type="checkbox" id="cb2">
+                <label for="cb2"></label>
+                <span>متوسط</span>
+              </div>
+            </div>
+            <div class="item checkbox">
+              <div class="custom-checkbox">
+                <input type="checkbox" id="cb3">
+                <label for="cb3"></label>
+                <span>کوچک</span>
+              </div>
+            </div>
+            <div class="item checkbox">
+              <div class="custom-checkbox">
+                <input type="checkbox" id="cb4">
+                <label for="cb4"></label>
+                <span>کوچک</span>
+              </div>
+            </div>
+            <div class="item">
+              <button type="submit" class="btn_1">فیلتر</button>
+            </div>
+          </div>
+
+          <div class="border-box-3 range-slider mt-4">
+            <div class="header item">
+              <h3>فیلتر</h3>
+            </div>
+            <div class="item range-slide-section relative">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div id="slider-range"></div>
+                </div>
+              </div>
+              <button type="button" class="btn_2">فیلتر</button>
+              <div class="slider-labels">
+                <p>تومان: </p>
+                <div class="caption">
+                  <span id="slider-range-value2" class="faNum"></span>
+                </div>
+                <span class="dash">-</span>
+                <div class="caption">
+                  <span id="slider-range-value1" class="faNum"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <form>
+                    <input type="hidden" name="min-value" value="">
+                    <input type="hidden" name="max-value" value="">
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-box-3 suggestions mt-4">
+            <div class="header item">
+              <h3>دسته بندی ها</h3>
+            </div>
+            <div class="item sample">
+              <div class="col-first">
+                <a href="#"><img src="{% static 'assets/img/thumb/1.jpg' %}" alt=""></a>
+              </div>
+              <div class="col-second">
+                <p class="title">لورم ایپسوم</p>
+                <h5>لورم ایپسوم متن ساختگی</h5>
+                <ul class="list-inline">
+                  <li class="list-inline-item"><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li class="list-inline-item"><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li class="list-inline-item"><i class="fa fa-star" aria-hidden="true"></i></li>
+                </ul>
+                <p class="payment"><span class="faNum">20</span> تومان</p>
+              </div>
+            </div>
+            <div class="item sample">
+              <div class="col-first">
+                <a href="#"><img src="{% static 'assets/img/thumb/1.jpg'%}" alt=""></a>
+              </div>
+              <div class="col-second">
+                <p class="title">لورم ایپسوم</p>
+                <h5>لورم ایپسوم متن ساختگی</h5>
+                <ul class="list-inline">
+                  <li class="list-inline-item"><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li class="list-inline-item"><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li class="list-inline-item"><i class="fa fa-star" aria-hidden="true"></i></li>
+                </ul>
+                <p class="payment"><span class="faNum">20</span> تومان</p>
+              </div>
+            </div>
+            <div class="item sample">
+              <div class="col-first">
+                <a href="#"><img src="{% static 'assets/img/thumb/1.jpg' %}" alt=""></a>
+              </div>
+              <div class="col-second">
+                <p class="title">لورم ایپسوم</p>
+                <h5>لورم ایپسوم متن ساختگی</h5>
+                <ul class="list-inline">
+                  <li class="list-inline-item"><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li class="list-inline-item"><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li class="list-inline-item"><i class="fa fa-star" aria-hidden="true"></i></li>
+                </ul>
+                <p class="payment"><span class="faNum">20</span> تومان</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-2 d-block d-lg-none"></div>
+        <div class="col-md-8 d-block d-lg-none">
+          <div class="border-box-3 range-slider mt-4">
+            <div class="header item">
+              <h3>فیلتر </h3>
+            </div>
+            <div class="item range-slide-section relative">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div id="slider-range-2"></div>
+                </div>
+              </div>
+              <button type="button" class="btn_2">فیلتر</button>
+              <div class="slider-labels">
+                <p>{{ products.price }}تومان: </p>
+                <div class="caption">
+                  <span id="slider-range-value2-2" class="faNum"></span>
+                </div>
+                <span class="dash">-</span>
+                <div class="caption">
+                  <span id="slider-range-value1-2" class="faNum"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <form>
+                    <input type="hidden" name="min-value-2" value="">
+                    <input type="hidden" name="max-value-2" value="">
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 d-block d-lg-none"></div>
+
+        <div class="right-side list col-md-12 col-lg-8">
+          <div class="border-box-3 mt-4">
+            <div class="header item">
+              <h3>دسته بندی ها</h3>
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <div class="dropdown">
+                    <button class="dropbtn">Dropdown</button>
+                    <div class="dropdown-content">
+                      <a href="#">Link 1</a>
+                      <a href="#">Link 2</a>
+                      <a href="#">Link 3</a>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-inline-item">
+                  <div class="dropdown">
+                    <button class="dropbtn">Dropdown</button>
+                    <div class="dropdown-content">
+                      <a href="#">Link 1</a>
+                      <a href="#">Link 2</a>
+                      <a href="#">Link 3</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            {% for product in products %}
+            <div class="col-12 col-sm-6 col-md-4 mt-4">
+              <div class="product">
+                <img src="/{{ product.banner.url }}" alt="">
+                <div class="details text-center">
+                  <p class="title">{{ product.name }}</p>
+                  <h5>{{ product.summary }}</h5>
+                  <h6 class="price"><span class="faNum">{{ product.price }}</span> تومان</h6>
+                  <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
+                    <li class="list-inline-item"><a href="{{ product.get_absolute_url }}"><i
+                          class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div> 
+            </div>   
+          {% endfor %}
+           <div class ="clearfix p-3"></div>
+    {% include 'partials/_pagination.html' with page=posts %}
+   
+             </div>  
+          
+        
+  
+          
+</main>
+{% endblock %}

@@ -19,6 +19,15 @@
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-10 d-none d-xl-block">
+                        <form method="POST" class="form-horizontal eagle" role="form" data-url='{{ request.build_absolute_uri|safe }}' novalidate >
+                                <div class="header-section mb-4">
+                                    <div class="row">
+                                        <div class="col-md-4 col-6">
+                                            <h3 class="heading-style-3">تماس با ما</h3>
+                                        </div>
+                                        <div class="col-md-8 col-6"></div>
+                                    </div>
+                                </div>
                     {% include 'partials/_panel_form.html' %}
                 </div>
             </div>

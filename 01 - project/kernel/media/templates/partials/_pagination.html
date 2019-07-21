@@ -1,0 +1,59 @@
+{% if is_paginated %}
+<ul class="pagination left-margin">
+    {% if page_obj.has_previous %}
+    <li>
+        <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+        </a>
+    </li>
+    {% else %}
+    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>{% endif %}
+    {% for i in paginator.page_range %}
+    {% if page_obj.number == i %}
+    <li class="active">
+        <a class="page-link" href="#">{{ i }}</a>
+    </li>
+    {% else %}
+    <li>
+        <a class="page-link" href="{{ request.path }}?page={{ i }}">{{ i }}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+    <li>
+        <a href="{{ request.path }}?page={{ page_obj.next_page_number }}" aria-label="Next"><span
+                aria-hidden="true">&raquo;</span>
+        </a>
+    </li>
+    {% else %}
+    <li class = "disabled">
+        <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+        </a>
+    </li>
+    {% endif %}
+</ul>
+{% endif %}
+
+
+
+
+
+
+<div class="pagination">
+    <span class="step-links">
+      {% if page.has_previous %}
+        <a href="?page={{ page.previous_page_number }}">Previous</a>
+      {% endif %}
+      <span class="current">
+        Page {{ page.number }} of {{ page.paginator.num_pages }}.
+      </span>
+        {% if page.has_next %}
+          <a href="?page={{ page.next_page_number }}">Next</a>
+        {% endif %}
+    </span>
+  </div> 
+
+
+
+ 

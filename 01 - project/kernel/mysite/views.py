@@ -9,28 +9,33 @@ from django.http import HttpResponse
 from .forms import CantactForm
 from .models import Contact
 from blog.models import Post
+from shop.models import Product
 from painless.models.mixins import AjaxFormMixin
-from painless.models import mail_templates as mailify
+from painless import mail_templates as mailify
 from django.conf import settings
 from django.shortcuts import redirect
-from django.utils.decorators import method_decorator
-from django.views.decorators.cache import cache_page
 
-class PostListView(ListView):
-    model = Post
-    template_name = 'blog/products.html'
-    context_object_name = 'latest_posts'
+# from django.utils.decorators import method_decorator
+# from django.views.decorators.cache import cache_page
 
-class PostDetailView(DetailView):
-    model = Post
-    template_name = 'blog/product.html'
-    context_object_name = 'post'
 
 class HomeView(TemplateView):
+    model = Post
     template_name = 'mysite/landing.html'
+    context_object_name = 'post'
     page_name = 'landing'
+    paginate_by = 2
 
-@method_decorator(cache_page(60*60*24), name ='dispatch')
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(HomeView, self).get_context_data(*args, **kwargs)
+        context['latest_posts'] = Post.objects.filter()[:2]
+        context['latest_product'] = Product.objects.filter()[:3]
+        
+        return context
+
+
+# @method_decorator(cache_page(60*60*24), name ='dispatch')
 class ContactView(SuccessMessageMixin, CreateView):
     template_name = 'mysite/contact.html'
     form_class = CantactForm
@@ -57,7 +62,7 @@ class ContactView(SuccessMessageMixin, CreateView):
             html_msg = mailify.get_html_message('news')
             
             try:
-                send_mail(subject, message, 'domain@gmail.com', [to_mail], html_message=html_msg)
+                send_mail(subject, message, 'siyamak1981@gmail.com', [to_mail], html_message=html_msg)
             except BadHeaderError:
                 return HttpResponse('error')
             self.object.save()

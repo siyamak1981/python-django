@@ -12,7 +12,7 @@ class CommentInline(admin.StackedInline):
     # max_num = 2
     fields = [
         ('email', 'title',),
-        ('reply_to', 'active'),
+        ('parent', 'active'),
         'content'
     ]
 

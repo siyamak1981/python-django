@@ -9,14 +9,14 @@
                                     class="fa fa-sign-in"></span> حساب من </a></h3>
                     </li>
                     <li class="list-inline-item">
-                        <h3 class="heading-style-3 mr-bt-0"><a class="sa_white_link" href="#"> خروج </a></h3>
+                        <h3 class="heading-style-3 mr-bt-0"><a class="sa_white_link" href="{% url 'accounts:signout' %}"> خروج </a></h3>
                     </li>
                     {% else %}
                     <li class="list-inline-item">
-                        <h3 class="heading-style-3 ml-5 mr-bt-0"><a class="sa_white_link" href="#"> ورود</a></h3>
+                        <h3 class="heading-style-3 ml-5 mr-bt-0"><a class="sa_white_link" href="{% url 'accounts:signin' %}"> ورود</a></h3>
                     </li>
                     <li class="list-inline-item">
-                        <h3 class="heading-style-3 mr-bt-0"><a class="sa_white_link" href="#">ثبت نام </a></h3>
+                        <h3 class="heading-style-3 mr-bt-0"><a class="sa_white_link" href="{% url 'accounts:signup' %}">ثبت نام </a></h3>
                     </li>
                     {% endif %}
                 </ul>

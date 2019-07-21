@@ -1,0 +1,89 @@
+
+{% load static %}
+{% load tags %}
+    
+    {% for post in latest_posts %}
+    {% if forloop.first %}
+    <div class="col-md-6 mt-3">
+        <div class=" border-box-2">
+            <div class="row">
+                <div class="col-md-12">
+                    <img class="img-fluid news-image"
+                        src="{% static 'assets/img/thumb/profile.jpg '%}" alt="">
+                </div>
+                <div class="col-md-12 news-content">
+                    <div class="row mx-0">
+                        <a class="title" href="#">{{ post.title }}</a>
+                        <br>
+                        <span class="date"> {{ post.published_at |jalali_date }}</span>
+                        <p class="text">{{ post.content |truncatechars:200 }}
+                        </p>
+                        <a class="btn_2" href="{{ post.get_absolute_url }}">بیشتر بخوانید</a>
+                        <hr class="hr-divider-1">
+                        <hr class="hr-divider-2">
+                        <div class="social mr-0">
+                            <div class="profile">
+                                <img src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
+                                <span class="name">{{ post.author.first_name }}
+                                    {{ post.author.last_name }}</span>
+                            </div>
+                            <div class="user-input ml-auto seen-count">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                <span class="count">251</span>
+                            </div>
+                            <div class="user-input mr-0 ml-2 like liked">
+                                <button class="like liked" href="#" role="button">
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                </button>
+                                <span class="count">251</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="col-md-6 mt-3">
+        <div class=" border-box-2">
+            <div class="row">
+                <div class="col-md-12">
+                    <img class="img-fluid news-image"
+                        src="{% static 'assets/img/thumb/profile.jpg '%}" alt="">
+                </div>
+                <div class="col-md-12 news-content">
+                    <div class="row mx-0">
+                        <a class="title" href="#">{{ post.title }}</a>
+                        <br>
+                        <span class="date"> {{ post.published_at |jalali_date }}</span>
+                        <p class="text">{{ post.content }}
+                        </p>
+                        <a class="btn_2" href="{{ post.get_absolute_url }}">بیشتر بخوانید</a>
+                        <hr class="hr-divider-1">
+                        <hr class="hr-divider-2">
+                        <div class="social mr-0">
+                            <div class="profile">
+                                <img src="{% static 'assets/img/thumb/profile.jpg' %}" alt="">
+                                <span class="name">{{ post.author.first_name }}
+                                    {{ post.author.last_name }}</span>
+                            </div>
+                            <div class="user-input ml-auto seen-count">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                <span class="count">251</span>
+                            </div>
+                            <div class="user-input mr-0 ml-2 like liked">
+                                <button class="like liked" href="#" role="button">
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                </button>
+                                <span class="count">251</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}

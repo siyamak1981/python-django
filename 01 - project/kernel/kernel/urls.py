@@ -17,14 +17,28 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mysite.urls')),
     path('blog/', include('blog.urls')),
-    re_path(r'^api-auth/', include ('rest_framework.urls')),
+    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    # re_path(r'^api-auth/', include ('rest_framework.urls')),
     re_path(r'^robots\.txt/', include('robots.urls')),
-    re_path(r'^api/v1/blog/',include('blog.urls_api')),
+    # re_path(r'^api/v1/blog/',include('blog.urls_api')),
+    re_path(r'^ckeditor/',include('ckeditor_uploader.urls')),
+    url(r'^cart/', include('cart.urls', namespace='cart')),
+    url(r'^shop/', include('shop.urls', namespace='shop')),
+    url(r'^sportboard/', include('sportboard.urls', namespace='sportboard'))
+
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [
+        re_path(r'^__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns

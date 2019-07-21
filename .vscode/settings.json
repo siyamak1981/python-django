@@ -2,6 +2,6 @@
 
 {
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-    "python.pythonPath": "${workspaceFolder}\\venv\\Scripts\\python.exe",
+    "python.pythonPath": "C:\\Python37\\python.exe",
     "python.linting.pylintEnabled": false
 }

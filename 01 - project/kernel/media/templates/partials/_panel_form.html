@@ -1,18 +1,10 @@
 {% load widget_tweaks %}
-<form method="POST" class="form-horizontal eagle" role="form" data-url='{{ request.build_absolute_uri|safe }}' novalidate >
-    <div class="header-section mb-4">
-        <div class="row">
-            <div class="col-md-4 col-6">
-                <h3 class="heading-style-3">تماس با ما</h3>
-            </div>
-            <div class="col-md-8 col-6"></div>
-        </div>
-    </div>
+
     {% csrf_token %}
     {% if messages %}
     <ul class="messages">
     {% for message in messages %}
-    <div{% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>
+    <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> {{ message }}
     </div>
     {% endfor %}
@@ -37,7 +29,7 @@
     </div>
     {% endif %} {% endfor %}
     </div>
-    <div class="g-recaptcha" data-sitekey="6LdjoKEUAAAAAH3fQRek8RQ5Q5MTEBfx-M_Ir6Z4"></div>
+    <div class="g-recaptcha" data-sitekey="6LeEmKIUAAAAAKclnIuImbw4E_Y0iDAltG9bm5AZ"></div>
 
     <div style="padding-left:50px; padding-right:400px; padding-top: 40px;" class="panel-footer">
         <div class="form-group">

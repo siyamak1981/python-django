@@ -1,0 +1,148 @@
+{% extends 'shared/master.html' %}
+{% load static %}
+{% block scripts %}
+<script src="{% static 'assets/features/owl-carousel/js/owl.carousel.js' %}"></script>
+{% endblock %}
+{% block body %}
+<main>
+  <div class="banner_3">
+    <h1 class="heading-style-1">
+      اخبار
+    </h1>
+    <div class="location">
+      <a href="{% url 'mysite:landing' %}">خانه</a>
+      <span>/</span>
+      <a class="active" href="{% url 'shop:products' %}">لیست</a>
+    </div>
+  </div>
+
+  <div class="selected-product">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div id="owl-eight" class="owl-carousel owl-theme">
+            {% if product.banner %}<div class="item">
+              <img src="/../{{ product.banner.url }}" alt="">
+            </div> {% endif %}{% if product.banner %}<div class="item">
+              <img src="/../{{ product.banner1.url }}" alt="">
+            </div>{% endif %} {% if product.banner %}<div class="item">
+              <img src="/../{{ product.banner2.url }}" alt="">
+            </div>{% endif %}
+          </div>
+        </div>
+        <div class="col-md-6">
+
+          <h4 class="title">{{ product.summary }}</h4>
+          <div class="display-flex-r">
+            <p class="sale">{{ product.price }} تومان</p>
+            <p class="real-price">{{ product.discount }} تومان</p>
+            <ul class="list-inline stars">
+              <li class="list-inline-item"><i class="fa fa-star" aria-hidden="true"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star" aria-hidden="true"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star" aria-hidden="true"></i></li>
+            </ul>
+          </div>
+          <p class="text">{{ product.content | truncatechars:200 }}</p>
+          <hr>
+          <div class="select-size display-flex-r mt-3">
+            <span>سایز </span>
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <label class="cutomized-form-radio check-box-3">
+                  <input type="radio" checked="checked" name="radio_2">
+                  <span class="checkmark weekly modern {% if product.size == 'SMALL' %} checked {% endif %}" > </span>
+                </label>
+              </li>
+              <li class="list-inline-item">
+                <label class="cutomized-form-radio check-box-3">
+                  <input type="radio" checked="checked" value="{{ product.size.2 }}"name="radio_2">
+                  <span class="checkmark weekly large" {% if product.size == 'LARGE' %} checked="checked" {% endif %}></span>
+                </label>
+              </li>
+              <li class="list-inline-item">
+                <label class="cutomized-form-radio check-box-3">
+                  <input type="radio" checked="checked" name="radio_2">
+                  <span class="checkmark weekly xlarge"></span>
+                </label>
+              </li>
+            </ul>
+          </div>
+          <div class="color display-flex-r mt-3">
+            <span>رنگ</span>
+            <ul class="list-inline">
+              <li class="list-inline-item ">
+                <!--                  <div class="checkbox">
+                        <div class="custom-checkbox red">
+                          <input type="checkbox" id="cb5">
+                          <label for="cb5"></label>
+                        </div>
+                      </div>-->
+                <label class="cutomized-form-radio check-box-2">
+                  <input type="radio" checked="checked" name="radio">
+                  <span class="checkmark weekly red"></span>
+                </label>
+              </li>
+              <li class="list-inline-item ">
+                <!--                  <div class="checkbox">
+                        <div class="custom-checkbox gray">
+                          <input type="checkbox" id="cb6">
+                          <label for="cb6"></label>
+                        </div>
+                      </div>-->
+                <label class="cutomized-form-radio check-box-2">
+                  <input type="radio" checked="checked" name="radio">
+                  <span class="checkmark weekly gray"></span>
+                </label>
+              </li>
+              <li class="list-inline-item ">
+                <!--                  <div class="checkbox">
+                        <div class="custom-checkbox green">
+                          <input type="checkbox" id="cb7">
+                          <label for="cb7"></label>
+                        </div>
+                      </div>-->
+                <label class="cutomized-form-radio check-box-2">
+                  <input type="radio" checked="checked" name="radio">
+                  <span class="checkmark weekly green"></span>
+                </label>
+              </li>
+            </ul>
+          </div>
+          <div class="counter display-flex-r mt-3">
+
+            <span>تعداد</span>
+            <button class="plus">+</button>
+            <p class="faNum">1</p>
+            <button class="neg">-</button>
+          </div>
+          <form action="{% url 'cart:cart_add' product.id %}" method="post">
+            {{ cart_product_form }}
+            {% csrf_token %}
+          <button class="btn_1">اضافه کردن به سبد خرید
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i></button></form>
+
+        </div>
+        <div class="col-12">
+          <div class="row">
+            <div class="border-box-2 overflow_hidden mt-4 delivery">
+              <div class="header-section">
+                <div class="row">
+                  <div class="col-md-4 col-6">
+                    <h3 class="heading-style-3">بازی بعدی</h3>
+                  </div>
+                  <div class="col-md-8 col-6"></div>
+                </div>
+              </div>
+              <div class="row mx-0 justify-content-center relative mt-4">
+                <div class="row mx-0 width-full px-4">
+                  <p class="text-justify">{{ product.content }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

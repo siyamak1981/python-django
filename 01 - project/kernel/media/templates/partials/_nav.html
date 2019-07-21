@@ -9,7 +9,7 @@
             <a class="nav-link{% if view.page_name == 'لیگ' %} active {% endif %}" href="#">لیگ <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link{% if view.page_name == 'اخبار' %} active {% endif %}" href="#">اخبار</a>
+            <a class="nav-link{% if view.page_name == 'اخبار' %} active {% endif %}" href="{% url 'blog:posts' %}">اخبار</a>
         </li>
         <li class="nav-item">
             <a class="nav-link{% if view.page_name == 'آموزش' %} active {% endif %}" href="#">آموزش</a>
@@ -22,13 +22,14 @@
             <div class="dropdown-menu" aria-labelledby="download">
             <a class="dropdown-item" href="https://jsfiddle.net/bootswatch/h3fgn55j/">چارت سازمانی استان مازندران</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="../4/cosmo/bootstrap.min.css">رئسای استان مازندران</a>
+            <a class="dropdown-item" href="{% url 'sportboard:news' %}">رئسای استان مازندران</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../4/cosmo/_variables.scss">سخنان بزرگان بدمینتون</a>
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link{% if view.page_name == 'فروشگاه' %} active {% endif %}" href="#">فروشگاه</a>
+            <a class="nav-link{% if view.page_name == ' فروشگاه ' %} active {% endif %}" href="{% url 'shop:products' %}">فروشگاه</a>
+   
         </li>
         <li class="nav-item">
             <a class="nav-link{% if view.page_name == 'تماس با ما' %} active {% endif %}" href="{% url 'mysite:contact' %}">تماس با ما</a>

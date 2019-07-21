@@ -1,0 +1,84 @@
+
+{% extends 'shared/master.html' %}
+{% load static %}
+{% load tags %}
+{% block scripts %}
+<script src="{% static 'assets/features/owl-carousel/js/owl.carousel.js' %}"></script>
+{% endblock %}
+{% block body %}
+<main>
+    <div class="banner_3">
+      <h1 class="heading-style-1">
+        اخبار
+      </h1>
+      <div class="location">
+        <a href="{% url 'mysite:landing' %}">خانه</a>
+        <span>/</span>
+        <a href="#">هیأت بدمینتون</a>
+        <span>/</span>
+        <a class="active" href="#">لیست</a>
+      </div>
+    </div>
+
+    <div class="bosses-words">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="border-box-2 overflow_hidden news-section specific-news landing-news box-1">
+              <div class="header-section">
+                <div class="row">
+                  <div class="col-md-4 col-6">
+                    <h3 class="heading-style-3">خبرنامه</h3>
+                  </div>
+                  <div class="col-md-8 col-6"></div>
+                </div>
+              </div>
+              <div class="row">
+                {% for new in bosses %}
+                <div class=" border-box-2 no_border width-full">
+                  <div class="display-flex-r mx-0">
+                    <div class="profile-box">
+                      <img class="img-fluid news-image" src="../../{{ new.role.biopic.url }}" alt="">
+                    </div>
+                    <div class="news-content">
+                      <a class="title" href="#">{{ new.role.title }}</a>
+                      <br>
+                      <span class="date">{{ new.city.province }} {{ new.city.title }}</span>
+                      <p class="text">{{ new.role.content }}</p>
+                      <a class="btn_2" href="{% url 'sportboard:new' pk=new.pk %}">بیشتر بخوانید</a>
+                      <hr class="hr-divider-1">
+                      <hr class="hr-divider-2">
+                      <div class="social">
+                        <div class="user-input seen-count">
+                          <i class="fa fa-eye" aria-hidden="true"></i>
+                          <span class="count">251</span>
+                        </div>
+                        <div class="user-input like liked">
+                          <button class="like liked" href="#" role="button">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                          </button>
+                          <span class="count">251</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  
+                  
+                </div>  
+                    <div class="col-12">
+                     {% if forloop.counter == 2 %}
+                     <div class="clearfix"></div>
+                     {% include 'partials/_pagination.html'  %}
+                     {% endif %}
+                  </div>
+               {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}

@@ -1,6 +1,7 @@
 import secrets
 from django.db import models
 from django.utils import timezone
+from blog.models import Post
 # Create your models here.
 class Contact(models.Model):
     sku = models.CharField(max_length=128, primary_key =True, editable = False, default = secrets.token_urlsafe(16 ))
@@ -19,3 +20,5 @@ class Contact(models.Model):
 
         def __str__(self):
             return self.title
+
+        
